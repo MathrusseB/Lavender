@@ -14,8 +14,8 @@ const ITEMS: RailItem[] = [
   { numeral: "I", key: "hero", href: "/" },
   { numeral: "II", key: "ranch", href: "/the-ranch" },
   { numeral: "III", key: "barn", href: "/the-barn" },
-  { numeral: "IV", key: "cabins", href: "#" },
-  { numeral: "V", key: "gatherings", href: "#" },
+  { numeral: "IV", key: "cabins", href: "/the-cabins" },
+  { numeral: "V", key: "gatherings", href: "/gatherings" },
   { numeral: "VI", key: "notes", href: "#" },
   { numeral: "VII", key: "inquire", href: "#" },
 ];
@@ -24,6 +24,8 @@ function currentKey(pathname: string | null): RailItem["key"] | null {
   if (pathname === "/") return "hero";
   if (pathname === "/the-ranch") return "ranch";
   if (pathname === "/the-barn") return "barn";
+  if (pathname === "/the-cabins") return "cabins";
+  if (pathname === "/gatherings") return "gatherings";
   return null;
 }
 
