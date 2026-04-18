@@ -40,7 +40,7 @@ export function Hero() {
                 animate={LINE_REVEAL.animate}
                 transition={{ duration: 1.1, ease: EASE, delay: 2.3 }}
               >
-                Lavender
+                Between the
               </motion.span>
             </span>
             <span className="line">
@@ -49,7 +49,7 @@ export function Hero() {
                 animate={LINE_REVEAL.animate}
                 transition={{ duration: 1.1, ease: EASE, delay: 2.45 }}
               >
-                Family
+                ponds and the oaks
               </motion.span>
             </span>
             <span className="line">
@@ -58,7 +58,7 @@ export function Hero() {
                 animate={LINE_REVEAL.animate}
                 transition={{ duration: 1.1, ease: EASE, delay: 2.6 }}
               >
-                <em>Ranch</em>
+                <em>and the sugar maples.</em>
               </motion.span>
             </span>
           </h1>
