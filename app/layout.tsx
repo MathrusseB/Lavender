@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Intro } from "@/components/Intro";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -23,10 +24,13 @@ export default function RootLayout({
         />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Italiana&family=Work+Sans:wght@300;400;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Italiana&family=Work+Sans:wght@300;400;500&display=swap"
         />
       </head>
-      <body className="bg-cream text-ink">{children}</body>
+      <body className="bg-cream text-ink">
+        <Intro />
+        {children}
+      </body>
     </html>
   );
 }
