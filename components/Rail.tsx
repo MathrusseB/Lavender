@@ -13,7 +13,7 @@ type RailItem = {
 const ITEMS: RailItem[] = [
   { numeral: "I", key: "hero", href: "/" },
   { numeral: "II", key: "ranch", href: "/the-ranch" },
-  { numeral: "III", key: "barn", href: "#" },
+  { numeral: "III", key: "barn", href: "/the-barn" },
   { numeral: "IV", key: "cabins", href: "#" },
   { numeral: "V", key: "gatherings", href: "#" },
   { numeral: "VI", key: "notes", href: "#" },
@@ -23,12 +23,14 @@ const ITEMS: RailItem[] = [
 function currentKey(pathname: string | null): RailItem["key"] | null {
   if (pathname === "/") return "hero";
   if (pathname === "/the-ranch") return "ranch";
+  if (pathname === "/the-barn") return "barn";
   return null;
 }
 
-export function Rail({ inverted = false }: { inverted?: boolean }) {
+export function Rail({ inverted }: { inverted?: boolean }) {
   const pathname = usePathname();
   const current = currentKey(pathname);
+  const isInverted = inverted ?? pathname === "/the-barn";
 
   const items = ITEMS.filter(
     (i) => i.key !== "cabins" || siteConfig.cabinsEnabled
@@ -36,7 +38,7 @@ export function Rail({ inverted = false }: { inverted?: boolean }) {
 
   return (
     <nav
-      className={`rail${inverted ? " inverted" : ""}`}
+      className={`rail${isInverted ? " inverted" : ""}`}
       aria-label="Section progress"
     >
       {items.map((item) => (

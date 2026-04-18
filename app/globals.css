@@ -648,6 +648,16 @@ a {
   background: var(--ink);
   color: var(--cream);
 }
+.section--ink .eyebrow,
+.section--ink .numeral {
+  color: color-mix(in oklab, var(--cream) 65%, transparent);
+}
+.section--ink .sec-head__title em {
+  color: color-mix(in oklab, var(--cream) 72%, transparent);
+}
+.section--ink .sec-head__dek {
+  color: color-mix(in oklab, var(--cream) 80%, transparent);
+}
 
 .sec-head {
   display: grid;
@@ -818,4 +828,233 @@ a {
   .land-vocab {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* ============================================================
+   III — THE BARN (ink section)
+   ============================================================ */
+.barn-stack {
+  display: grid;
+  gap: clamp(40px, 5vw, 72px);
+}
+
+.barn-hero-img {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #222;
+  margin: 0;
+}
+.barn-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  transition: transform 8s ease-out;
+}
+.barn-hero-img.in img {
+  transform: scale(1);
+}
+.barn-hero-img .cap {
+  position: absolute;
+  bottom: 18px;
+  left: 22px;
+  right: 22px;
+  color: var(--cream);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.spec-spread {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(244, 239, 231, 0.3);
+  border-bottom: 1px solid rgba(244, 239, 231, 0.3);
+  position: relative;
+}
+.spec-cell {
+  padding: 48px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-right: 1px solid rgba(244, 239, 231, 0.18);
+  position: relative;
+}
+.spec-cell:last-child {
+  border-right: 0;
+}
+.spec-cell .n {
+  font-family: var(--serif);
+  font-weight: 300;
+  line-height: 0.95;
+  color: var(--cream);
+}
+.spec-cell .n em {
+  font-style: italic;
+  color: color-mix(in oklab, var(--cream) 60%, var(--hay) 40%);
+}
+.spec-cell .l {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  color: color-mix(in oklab, var(--cream) 80%, transparent);
+  max-width: 22ch;
+}
+.spec-cell .k {
+  color: color-mix(in oklab, var(--cream) 55%, transparent);
+  margin-top: auto;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.spec-xxviii {
+  grid-column: span 7;
+  padding: 72px 40px;
+}
+.spec-xxviii .n {
+  font-size: clamp(140px, 20vw, 260px);
+}
+.spec-xxviii .l {
+  font-size: 22px;
+  max-width: 28ch;
+}
+
+.spec-iii {
+  grid-column: span 5;
+  align-items: flex-start;
+  justify-content: center;
+}
+.spec-iii .n {
+  font-size: clamp(80px, 10vw, 140px);
+}
+.spec-iii .note {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--maple);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.spec-iii .note svg {
+  width: 42px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.spec-row2 {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(244, 239, 231, 0.18);
+}
+.spec-row2 > .spec-cell {
+  border-right: 1px solid rgba(244, 239, 231, 0.18);
+  padding: 36px 24px;
+}
+.spec-row2 > .spec-cell:last-child {
+  border-right: 0;
+}
+.spec-row2 .n {
+  font-size: clamp(44px, 5vw, 72px);
+}
+
+@media (max-width: 900px) {
+  .spec-xxviii,
+  .spec-iii {
+    grid-column: span 12;
+    border-right: 0;
+  }
+  .spec-iii {
+    border-top: 1px solid rgba(244, 239, 231, 0.18);
+  }
+  .spec-xxviii .n {
+    font-size: 120px;
+  }
+  .spec-row2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .spec-row2 > .spec-cell:nth-child(2n) {
+    border-right: 0;
+  }
+  .spec-row2 > .spec-cell:nth-child(n + 3) {
+    border-top: 1px solid rgba(244, 239, 231, 0.18);
+  }
+}
+
+.barn-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.barn-duo figure {
+  margin: 0;
+}
+.barn-duo .asp {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+.barn-duo .asp img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.barn-duo figcaption {
+  margin-top: 14px;
+  color: color-mix(in oklab, var(--cream) 65%, transparent);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+@media (max-width: 780px) {
+  .barn-duo {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   Gate interlude — ken-burns
+   ============================================================ */
+.gate-bleed {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+}
+.gate-bleed img {
+  width: 100%;
+  height: clamp(380px, 60vh, 720px);
+  object-fit: cover;
+  transform: scale(1.08);
+}
+.gate-bleed.in img {
+  animation: kenBurns 14s ease-out forwards;
+}
+@keyframes kenBurns {
+  0% {
+    transform: scale(1.08) translate(1%, 1%);
+  }
+  100% {
+    transform: scale(1) translate(-1%, -1%);
+  }
+}
+.gate-bleed figcaption {
+  position: absolute;
+  inset: auto 0 24px 0;
+  text-align: center;
+  color: var(--cream);
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
 }
