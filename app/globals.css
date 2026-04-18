@@ -1237,3 +1237,123 @@ a {
     border-bottom: 0;
   }
 }
+
+/* ============================================================
+   VI — FIELD NOTES
+   ============================================================ */
+.notes {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(32px, 5vw, 72px);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.notes.in {
+  opacity: 1;
+  transform: none;
+}
+@media (max-width: 900px) {
+  .notes {
+    grid-template-columns: 1fr;
+  }
+}
+.notes__aside {
+  display: block;
+}
+.notes__prompt {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  max-width: 36ch;
+  margin: 0;
+}
+.notes__capture {
+  margin-top: 24px;
+  max-width: 320px;
+  display: block;
+}
+.notes__capture-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+.notes__capture-input {
+  width: 100%;
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  padding: 8px 0;
+  outline: none;
+  transition: border-bottom-color 0.2s;
+}
+.notes__capture-input::placeholder {
+  color: var(--ink-mute);
+  opacity: 0.55;
+  font-style: italic;
+}
+.notes__capture-input:focus {
+  border-bottom-color: var(--ink);
+}
+
+.note-list {
+  display: grid;
+  gap: 0;
+}
+.note {
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  gap: 24px;
+  padding: 28px 0;
+  border-top: 1px solid var(--rule);
+  align-items: baseline;
+  transition: padding-left 0.4s ease;
+}
+.note:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+.note:hover {
+  padding-left: 18px;
+}
+.note__date,
+.note__read {
+  color: var(--ink-mute);
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.note__title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.1;
+  margin: 0;
+  color: var(--ink);
+}
+.note__title em {
+  font-style: italic;
+  color: var(--ink-mute);
+}
+.note:hover .note__read {
+  color: var(--maple);
+}
+@media (max-width: 640px) {
+  .note {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
