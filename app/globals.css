@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #F4EFE7;
+  --cream-deep: #EBE3D4;
+  --stone: #D9CFBE;
+  --linen: #C9BEA6;
+  --ink: #1C1A16;
+  --ink-soft: #3A3530;
+  --ink-mute: #6F655A;
+  --rule: #B7AB94;
+  --hay: #B89755;
+  --pond: #5A6B74;
+  --maple: #8A3B2A;
+  --lavender: #9A8BA8;
+  --gutter: clamp(24px, 4.5vw, 72px);
+}
+
+html,
+body {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+body {
+  font-family: "Work Sans", system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@layer components {
+  .eyebrow {
+    font-family: "Italiana", serif;
+    text-transform: uppercase;
+    letter-spacing: 0.42em;
+    font-size: 12px;
+    color: var(--ink-mute);
+  }
+
+  .numeral {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: -0.02em;
+  }
+
+  .micro-label {
+    font-family: "Italiana", serif;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 11px;
+    color: var(--ink-mute);
+  }
+}
