@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Cursor } from "@/components/Cursor";
 import { FooterLand } from "@/components/FooterLand";
 import { Intro } from "@/components/Intro";
 import { Nav } from "@/components/Nav";
@@ -32,6 +33,7 @@ export default function RootLayout({
       </head>
       <body className="bg-cream text-ink">
         <Intro />
+        <Cursor />
         <Nav />
         <Rail />
         {children}
