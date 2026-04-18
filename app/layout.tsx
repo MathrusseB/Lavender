@@ -1,4 +1,9 @@
 import type { Metadata } from "next";
+import { Cursor } from "@/components/Cursor";
+import { FooterLand } from "@/components/FooterLand";
+import { Intro } from "@/components/Intro";
+import { Nav } from "@/components/Nav";
+import { Rail } from "@/components/Rail";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -23,10 +28,17 @@ export default function RootLayout({
         />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Italiana&family=Work+Sans:wght@300;400;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Italiana&family=Work+Sans:wght@300;400;500&display=swap"
         />
       </head>
-      <body className="bg-cream text-ink">{children}</body>
+      <body className="bg-cream text-ink">
+        <Intro />
+        <Cursor />
+        <Nav />
+        <Rail />
+        {children}
+        <FooterLand />
+      </body>
     </html>
   );
 }
