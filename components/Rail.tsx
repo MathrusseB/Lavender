@@ -1,30 +1,35 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/config";
 
 type RailItem = {
   numeral: string;
   key: "hero" | "ranch" | "barn" | "cabins" | "gatherings" | "notes" | "inquire";
+  href: string;
 };
 
 const ITEMS: RailItem[] = [
-  { numeral: "I", key: "hero" },
-  { numeral: "II", key: "ranch" },
-  { numeral: "III", key: "barn" },
-  { numeral: "IV", key: "cabins" },
-  { numeral: "V", key: "gatherings" },
-  { numeral: "VI", key: "notes" },
-  { numeral: "VII", key: "inquire" },
+  { numeral: "I", key: "hero", href: "/" },
+  { numeral: "II", key: "ranch", href: "/the-ranch" },
+  { numeral: "III", key: "barn", href: "#" },
+  { numeral: "IV", key: "cabins", href: "#" },
+  { numeral: "V", key: "gatherings", href: "#" },
+  { numeral: "VI", key: "notes", href: "#" },
+  { numeral: "VII", key: "inquire", href: "#" },
 ];
 
-export function Rail({
-  current = "hero",
-  inverted = false,
-}: {
-  current?: RailItem["key"];
-  inverted?: boolean;
-}) {
+function currentKey(pathname: string | null): RailItem["key"] | null {
+  if (pathname === "/") return "hero";
+  if (pathname === "/the-ranch") return "ranch";
+  return null;
+}
+
+export function Rail({ inverted = false }: { inverted?: boolean }) {
+  const pathname = usePathname();
+  const current = currentKey(pathname);
+
   const items = ITEMS.filter(
     (i) => i.key !== "cabins" || siteConfig.cabinsEnabled
   );
@@ -37,7 +42,7 @@ export function Rail({
       {items.map((item) => (
         <Link
           key={item.key}
-          href="/"
+          href={item.href}
           data-sec={item.key}
           className={item.key === current ? "current" : undefined}
         >
