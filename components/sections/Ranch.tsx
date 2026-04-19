@@ -1,12 +1,15 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
 import { chapterNumeral } from "@/lib/chapters";
 
 export function Ranch({ id = "ranch" }: { id?: string } = {}) {
   const headRef = useRef<HTMLDivElement>(null);
   const revealed = useReveal(headRef);
+  const logoRef = useRef<HTMLDivElement>(null);
+  const logoIn = useReveal(logoRef);
 
   return (
     <section className="section section--warm" id={id} aria-label="The Ranch">
@@ -30,6 +33,16 @@ export function Ranch({ id = "ranch" }: { id?: string } = {}) {
             Ninety minutes south of Kansas City, the land begins to roll.
           </p>
         </div>
+      </div>
+
+      <div ref={logoRef} className={`ranch__logo${logoIn ? " in" : ""}`}>
+        <Image
+          src="/assets/chat-logo.png"
+          alt="Lavender Family Ranch"
+          width={260}
+          height={260}
+          priority={false}
+        />
       </div>
 
       <div className="ranch-body">
