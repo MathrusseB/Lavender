@@ -493,8 +493,6 @@ a {
   padding-top: 24px;
   border-top: 1px solid rgba(244, 239, 231, 0.35);
   pointer-events: auto;
-  opacity: 0;
-  animation: navIn 1s ease-out 3s forwards;
 }
 .hero__lede {
   font-family: var(--serif);
@@ -508,7 +506,6 @@ a {
 }
 .hero__meta {
   text-align: center;
-  opacity: 0.8;
   font-family: var(--mono);
   font-size: 13px;
   letter-spacing: 0.28em;
@@ -530,6 +527,32 @@ a {
   display: grid;
   gap: 6px;
   justify-items: end;
+}
+
+.hero__lede,
+.hero__meta,
+.hero__progress {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 900ms ease-out, transform 900ms ease-out;
+}
+.hero__lede { transition-delay: 3.6s; }
+.hero__meta { transition-delay: 3.8s; }
+.hero__progress { transition-delay: 4.0s; }
+
+.hero__lede.in { opacity: 1; transform: translateY(0); }
+.hero__meta.in { opacity: 0.8; transform: translateY(0); }
+.hero__progress.in { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__lede,
+  .hero__meta,
+  .hero__progress {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .hero__meta { opacity: 0.8 !important; }
 }
 .hero__progress .pc {
   font-family: var(--serif);
