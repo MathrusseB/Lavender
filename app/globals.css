@@ -340,11 +340,17 @@ a {
   height: 1px;
   background: currentColor;
   opacity: 0.6;
-  transition: width 0.3s;
+  transition: width 240ms ease, opacity 240ms ease;
 }
 .rail a.current .r-line {
+  width: 36px;
   opacity: 1;
-  width: 28px;
+}
+.rail a .r-num {
+  transition: font-weight 240ms ease;
+}
+.rail a.current .r-num {
+  font-weight: 500;
 }
 .rail.inverted {
   color: var(--cream);
