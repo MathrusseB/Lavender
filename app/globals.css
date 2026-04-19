@@ -437,7 +437,7 @@ a {
 
 .hero__frame {
   position: absolute;
-  inset: 120px var(--gutter) 48px;
+  inset: 120px var(--gutter) 120px;
   display: grid;
   grid-template-rows: 1fr auto;
   pointer-events: none;
@@ -454,7 +454,7 @@ a {
   font-family: var(--serif);
   font-weight: 300;
   font-size: clamp(44px, 6.4vw, 104px);
-  line-height: 0.96;
+  line-height: 1.05;
   letter-spacing: -0.02em;
   margin: 0;
 }
