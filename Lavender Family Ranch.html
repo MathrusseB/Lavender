@@ -186,7 +186,7 @@ a { color: inherit; text-decoration: none; }
 }
 .hero__img {
   position:absolute; inset:0;
-  background: url("assets/barn-sunset.jpg") center/cover no-repeat;
+  background: url("assets/barn-front.jpg") center/cover no-repeat;
   transform: scale(1.08);
   animation: slowZoom 12s cubic-bezier(.22,.61,.36,1) 1.6s forwards;
   opacity: 0;
@@ -582,7 +582,7 @@ section { position: relative; }
 }
 .footer-land::before {
   content: ""; position: absolute; inset: 0;
-  background: url("assets/barn-sunset.jpg") center/cover no-repeat;
+  background: repeating-linear-gradient(135deg, var(--stone) 0 2px, transparent 2px 14px), linear-gradient(180deg, var(--linen), var(--stone));
   transform: scale(1.04);
 }
 .footer-land::after {
@@ -970,9 +970,8 @@ section { position: relative; }
   <h4>Tweaks</h4>
   <label><span>Hero image</span>
     <select id="tw-hero">
-      <option value="assets/barn-sunset.jpg">Sunset barn</option>
-      <option value="assets/entry-gate.jpg">Entry gate</option>
       <option value="assets/barn-front.jpg">Front elevation</option>
+      <option value="assets/entry-gate.jpg">Entry gate</option>
       <option value="assets/barn-field.jpg">Barn &amp; field</option>
     </select>
   </label>

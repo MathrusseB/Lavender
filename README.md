@@ -253,8 +253,7 @@ All imagery in `/assets/` is client-provided ranch photography. Placeholder cabi
 
 | File | Role |
 |---|---|
-| `barn-sunset.jpg` | Hero, footer landscape |
-| `barn-front.jpg` | Section III hero image |
+| `barn-front.jpg` | Hero, Section III hero image |
 | `barn-interior.jpg` | Section III duo, left |
 | `barn-field.jpg` | Section III duo, right |
 | `entry-gate.jpg` | Gate interlude |
