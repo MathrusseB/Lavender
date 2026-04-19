@@ -16,7 +16,7 @@ export function FooterLand() {
           </a>
         </span>
         <span>
-          Crafted by <a href="https://kleos.studio">Kleos</a>
+          Crafted by <a href="https://kleosdesign.com">Kleos</a>
         </span>
       </div>
     </footer>
