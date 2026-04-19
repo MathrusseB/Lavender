@@ -17,7 +17,7 @@ export function GateInterlude({ id }: { id?: string } = {}) {
       aria-label="Entry gate"
     >
       <Image
-        src="/assets/entry-gate.jpg"
+        src="/assets/grok-gate.png"
         alt="Entry gate with the barn framed through it"
         width={2880}
         height={1620}

@@ -15,6 +15,9 @@ export function FooterLand() {
             @lavenderfamilyranch
           </a>
         </span>
+        <span>
+          Crafted by <a href="https://kleos.studio">Kleos</a>
+        </span>
       </div>
     </footer>
   );

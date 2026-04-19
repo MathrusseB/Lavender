@@ -214,11 +214,6 @@ export function Inquire({ id = "inquire" }: { id?: string } = {}) {
           <span className="eyebrow">
             <span>Inquire</span>
           </span>
-          <h2 className="sec-head__title">
-            Leave a note.
-            <br />
-            We answer <em>what we can.</em>
-          </h2>
         </div>
       </div>
 
