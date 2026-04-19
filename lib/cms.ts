@@ -31,9 +31,9 @@ We watch for it. It's the signal the ranch is ready to be worked again.`,
 Coffee carried up at 1:45 is still warm at 3:30.`,
   },
   {
-    slug: "sugar-mound-burned-late",
+    slug: "sugar-mound-held-red-late",
     date: "2025-11-03",
-    title: "Sugar Mound <em>burned</em> late this year.",
+    title: "Sugar Mound <em>held</em> its red late this year.",
     excerpt:
       "A cold October held back the maples — Sugar Mound didn't fully turn until the first week of November.",
     body: `A cold October held back the maples — Sugar Mound didn't fully turn until the first week of November. Usually we're past peak by Halloween.
