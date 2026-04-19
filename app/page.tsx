@@ -6,12 +6,18 @@ import { Cabins } from "@/components/sections/Cabins";
 import { Gatherings } from "@/components/sections/Gatherings";
 import { FieldNotes } from "@/components/sections/FieldNotes";
 import { Inquire } from "@/components/sections/Inquire";
+import { PageTurn } from "@/components/PageTurn";
 import { siteConfig } from "@/lib/config";
 import { isMobile } from "@/lib/device";
 
 export default function Home() {
   if (!isMobile()) {
-    return <Hero />;
+    return (
+      <>
+        <Hero />
+        <PageTurn currentKey="hero" />
+      </>
+    );
   }
 
   return (

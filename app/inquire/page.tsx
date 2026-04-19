@@ -1,5 +1,11 @@
+import { PageTurn } from "@/components/PageTurn";
 import { Inquire } from "@/components/sections/Inquire";
 
 export default function InquirePage() {
-  return <Inquire />;
+  return (
+    <>
+      <Inquire />
+      <PageTurn currentKey="inquire" />
+    </>
+  );
 }

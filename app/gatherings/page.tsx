@@ -1,5 +1,11 @@
+import { PageTurn } from "@/components/PageTurn";
 import { Gatherings } from "@/components/sections/Gatherings";
 
 export default function GatheringsPage() {
-  return <Gatherings />;
+  return (
+    <>
+      <Gatherings />
+      <PageTurn currentKey="gatherings" />
+    </>
+  );
 }

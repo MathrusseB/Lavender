@@ -1,11 +1,11 @@
+import { PageTurn } from "@/components/PageTurn";
 import { Barn } from "@/components/sections/Barn";
-import { GateInterlude } from "@/components/sections/GateInterlude";
 
 export default function TheBarnPage() {
   return (
     <>
       <Barn />
-      <GateInterlude />
+      <PageTurn currentKey="barn" />
     </>
   );
 }
