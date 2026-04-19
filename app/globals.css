@@ -347,35 +347,10 @@ a {
   display: grid;
   align-content: end;
   padding: clamp(60px, 10vw, 140px) var(--gutter) 24px;
-  color: var(--cream);
+  background: var(--cream);
+  color: var(--ink);
+  border-top: 1px solid var(--rule);
   overflow: hidden;
-}
-.footer-land::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-      135deg,
-      var(--stone) 0 2px,
-      transparent 2px 14px
-    ),
-    linear-gradient(180deg, var(--linen), var(--stone));
-  transform: scale(1.04);
-}
-.footer-land::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(12, 10, 8, 0.3) 0%,
-    rgba(12, 10, 8, 0.55) 60%,
-    rgba(12, 10, 8, 0.85) 100%
-  );
-}
-.footer-land > * {
-  position: relative;
-  z-index: 1;
 }
 .footer-land__mark {
   font-family: var(--serif);
@@ -388,18 +363,18 @@ a {
 }
 .footer-land__mark em {
   font-style: italic;
-  color: color-mix(in oklab, var(--cream) 75%, var(--lavender) 25%);
+  color: color-mix(in oklab, var(--ink) 75%, var(--lavender) 25%);
 }
 .footer-land__tag {
   font-family: var(--mono);
   font-size: 14px;
   letter-spacing: 0.42em;
   text-transform: uppercase;
-  opacity: 0.85;
+  color: var(--ink-mute);
 }
 .footer-land__rule {
   height: 1px;
-  background: rgba(244, 239, 231, 0.3);
+  background: var(--rule);
   margin: 48px 0 20px;
 }
 .footer-land__meta {
@@ -410,11 +385,11 @@ a {
   font-size: 11px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: color-mix(in oklab, var(--cream) 55%, transparent);
+  color: var(--ink-mute);
   flex-wrap: wrap;
 }
 .footer-land__meta a:hover {
-  color: var(--cream);
+  color: var(--ink);
 }
 
 /* ============================================================
