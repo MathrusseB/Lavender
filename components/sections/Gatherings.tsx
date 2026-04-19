@@ -110,14 +110,12 @@ export function Gatherings({ id = "gatherings" }: { id?: string } = {}) {
         eyebrow="Gatherings"
         title={
           <>
-            What the ranch
+            What the ranch does,
             <br />
-            does, when it <em>does</em>
-            <br />
-            anything at all.
+            and what it <em>opens</em> for.
           </>
         }
-        dek="The ranch is a private place. From time to time it opens, by invitation, for reasons the family considers worth opening it for."
+        dek="Most days, the ranch is a working, family place. A handful of times a year, it opens — by invitation — for gatherings, stays, and days on the grounds we feel are worth opening it for."
       />
 
       <div className="gatherings">
