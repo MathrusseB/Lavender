@@ -14,9 +14,9 @@ const EASE = [0.22, 0.61, 0.36, 1] as const;
 const CREAM_BLUR =
   "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0IDQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNGNEVGRTciLz48L3N2Zz4=";
 
-export function Hero() {
+export function Hero({ id = "top" }: { id?: string } = {}) {
   return (
-    <section className="hero" id="top" aria-label="Hero">
+    <section className="hero" id={id} aria-label="Hero">
       <div className="hero__img">
         <Image
           src="/assets/barn-sunset.jpg"

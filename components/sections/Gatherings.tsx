@@ -76,7 +76,7 @@ const CARDS: GatherCard[] = [
   },
 ];
 
-export function Gatherings() {
+export function Gatherings({ id = "gatherings" }: { id?: string } = {}) {
   const headRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -86,7 +86,7 @@ export function Gatherings() {
   return (
     <section
       className="section section--stone"
-      id="gatherings"
+      id={id}
       aria-label="Gatherings"
     >
       <div ref={headRef} className={`sec-head${headIn ? " in" : ""}`}>

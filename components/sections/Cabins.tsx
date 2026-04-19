@@ -39,7 +39,7 @@ const CABINS: Cabin[] = [
   },
 ];
 
-export function Cabins() {
+export function Cabins({ id = "cabins" }: { id?: string } = {}) {
   const headRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -49,7 +49,7 @@ export function Cabins() {
   return (
     <section
       className="section section--warm"
-      id="cabins"
+      id={id}
       aria-label="The Cabins"
     >
       <div ref={headRef} className={`sec-head${headIn ? " in" : ""}`}>

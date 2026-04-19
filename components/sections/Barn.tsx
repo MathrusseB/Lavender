@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
 
-export function Barn() {
+export function Barn({ id = "barn" }: { id?: string } = {}) {
   const headRef = useRef<HTMLDivElement>(null);
   const heroImgRef = useRef<HTMLElement>(null);
   const spreadRef = useRef<HTMLDivElement>(null);
@@ -18,7 +18,7 @@ export function Barn() {
   return (
     <section
       className="section section--ink"
-      id="barn"
+      id={id}
       aria-label="The Barn"
     >
       <div ref={headRef} className={`sec-head${headIn ? " in" : ""}`}>

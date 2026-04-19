@@ -3,12 +3,12 @@
 import { useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
 
-export function Ranch() {
+export function Ranch({ id = "ranch" }: { id?: string } = {}) {
   const headRef = useRef<HTMLDivElement>(null);
   const revealed = useReveal(headRef);
 
   return (
-    <section className="section section--warm" id="ranch" aria-label="The Ranch">
+    <section className="section section--warm" id={id} aria-label="The Ranch">
       <div
         ref={headRef}
         className={`sec-head${revealed ? " in" : ""}`}
