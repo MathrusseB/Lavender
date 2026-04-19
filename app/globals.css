@@ -1474,7 +1474,7 @@ a {
 }
 .inquire__logo {
   position: absolute;
-  top: 50%;
+  top: 45%;
   right: clamp(60px, 10vw, 140px);
   transform: translateY(-50%) translateY(12px);
   opacity: 0;
@@ -1487,7 +1487,7 @@ a {
   transform: translateY(-50%) translateY(0);
 }
 .inquire__logo img {
-  max-width: 280px;
+  max-width: 320px;
   width: 100%;
   height: auto;
   opacity: 0.85;
