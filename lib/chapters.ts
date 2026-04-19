@@ -3,13 +3,13 @@ import { siteConfig } from "@/lib/config";
 const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII"];
 
 const FULL_ORDER = [
-  { key: "hero",       path: "/",            label: "The Arrival" },
-  { key: "ranch",      path: "/the-ranch",   label: "The Ranch" },
-  { key: "barn",       path: "/the-barn",    label: "The Barn" },
-  { key: "cabins",     path: "/the-cabins",  label: "The Cabins" },
-  { key: "gatherings", path: "/gatherings",  label: "Gatherings" },
-  { key: "notes",      path: "/field-notes", label: "Field Notes" },
-  { key: "inquire",    path: "/inquire",     label: "Inquire" },
+  { key: "hero",       path: "/#top",        label: "The Arrival" },
+  { key: "ranch",      path: "/#ranch",      label: "The Ranch" },
+  { key: "barn",       path: "/#barn",       label: "The Barn" },
+  { key: "cabins",     path: "/#cabins",     label: "The Cabins" },
+  { key: "gatherings", path: "/#gatherings", label: "Gatherings" },
+  { key: "notes",      path: "/#notes",      label: "Field Notes" },
+  { key: "inquire",    path: "/#inquire",    label: "Inquire" },
 ] as const;
 
 export type ChapterKey = typeof FULL_ORDER[number]["key"];

@@ -107,14 +107,6 @@ export function Inquire({ id = "inquire" }: { id?: string } = {}) {
   }, [letterStep, sent]);
 
   useEffect(() => {
-    const active = letterStep > 0 && !sent;
-    document.body.classList.toggle("letter-active", active);
-    return () => {
-      document.body.classList.remove("letter-active");
-    };
-  }, [letterStep, sent]);
-
-  useEffect(() => {
     if (current.kind !== "textarea") return;
     const el = inputRef.current;
     if (!(el instanceof HTMLTextAreaElement)) return;

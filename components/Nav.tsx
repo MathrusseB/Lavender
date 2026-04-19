@@ -10,11 +10,11 @@ const SCROLL_THRESHOLD = 60;
 type MenuItem = { label: string; hash: string; flag?: boolean };
 
 const MENU_ITEMS: MenuItem[] = [
-  { label: "The Ranch", hash: "#the-ranch" },
-  { label: "The Barn", hash: "#the-barn" },
-  { label: "The Cabins", hash: "#the-cabins", flag: true },
+  { label: "The Ranch", hash: "#ranch" },
+  { label: "The Barn", hash: "#barn" },
+  { label: "The Cabins", hash: "#cabins", flag: true },
   { label: "Gatherings", hash: "#gatherings" },
-  { label: "Field Notes", hash: "#field-notes" },
+  { label: "Field Notes", hash: "#notes" },
   { label: "Inquire", hash: "#inquire" },
 ];
 
@@ -60,7 +60,7 @@ export function Nav() {
           <small>Mound City · Kansas</small>
         </Link>
         <div className="nav__right">
-          <Link href="/inquire" className="nav__inquire">
+          <Link href="/#inquire" className="nav__inquire">
             <span>Inquire</span>
           </Link>
           <button

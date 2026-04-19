@@ -30,12 +30,10 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-cream text-ink">
-        <div className="app-shell">
-          <Nav />
-          <main className="page-area">{children}</main>
-          <FooterLand />
-        </div>
+        <Nav />
         <Rail />
+        {children}
+        <FooterLand />
       </body>
     </html>
   );
