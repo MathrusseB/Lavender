@@ -18,6 +18,7 @@ const INVERTED_KEYS = new Set<ChapterKey>(["hero", "barn"]);
 export function Rail() {
   const items = chapterList();
   const [current, setCurrent] = useState<ChapterKey>(items[0]?.key ?? "hero");
+  const [inverted, setInverted] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -29,7 +30,14 @@ export function Rail() {
           found = item.key;
         }
       }
+
+      const gateEl = document.getElementById("gate");
+      const gateTop = gateEl?.offsetTop ?? Infinity;
+      const gateBottom = gateTop + (gateEl?.offsetHeight ?? 0);
+      const inGate = viewMid >= gateTop && viewMid < gateBottom;
+
       setCurrent(found);
+      setInverted(INVERTED_KEYS.has(found) || inGate);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -40,11 +48,9 @@ export function Rail() {
     };
   }, [items]);
 
-  const isInverted = INVERTED_KEYS.has(current);
-
   return (
     <nav
-      className={`rail${isInverted ? " inverted" : ""}`}
+      className={`rail${inverted ? " inverted" : ""}`}
       aria-label="Section progress"
     >
       {items.map((item) => (
