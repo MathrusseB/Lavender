@@ -105,6 +105,14 @@ export function Inquire() {
     return () => window.clearTimeout(id);
   }, [letterStep, sent]);
 
+  useEffect(() => {
+    if (current.kind !== "textarea") return;
+    const el = inputRef.current;
+    if (!(el instanceof HTMLTextAreaElement)) return;
+    el.style.height = "auto";
+    el.style.height = `${el.scrollHeight}px`;
+  }, [value, current.kind]);
+
   function updateValue(v: string) {
     setLetterAnswers((prev) => ({ ...prev, [current.key]: v }));
   }

@@ -1463,6 +1463,9 @@ a {
   overflow: hidden;
   min-height: 1.25em;
   vertical-align: bottom;
+  display: inline-block;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 .letter__line select.blank {
   appearance: none;
