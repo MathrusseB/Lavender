@@ -345,10 +345,9 @@ a {
    ============================================================ */
 .footer-land {
   position: relative;
-  min-height: 560px;
   display: grid;
   align-content: end;
-  padding: clamp(60px, 10vw, 140px) var(--gutter) 24px;
+  padding: clamp(40px, 5vw, 72px) var(--gutter) 28px;
   background: var(--cream);
   color: var(--ink);
   border-top: 1px solid var(--rule);
@@ -357,10 +356,10 @@ a {
 .footer-land__mark {
   font-family: var(--serif);
   font-weight: 300;
-  font-size: clamp(56px, 9vw, 132px);
+  font-size: clamp(28px, 3.2vw, 44px);
   line-height: 0.95;
   letter-spacing: -0.02em;
-  margin: 0 0 36px;
+  margin: 0 0 14px;
   max-width: 12ch;
 }
 .footer-land__mark em {
@@ -377,7 +376,7 @@ a {
 .footer-land__rule {
   height: 1px;
   background: var(--rule);
-  margin: 48px 0 20px;
+  margin: 28px 0 14px;
 }
 .footer-land__meta {
   display: flex;
