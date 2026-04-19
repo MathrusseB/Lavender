@@ -1474,8 +1474,8 @@ a {
 }
 .inquire__logo {
   position: absolute;
-  top: 45%;
-  right: clamp(60px, 10vw, 140px);
+  top: 50%;
+  right: clamp(80px, 12vw, 200px);
   transform: translateY(-50%) translateY(12px);
   opacity: 0;
   transition: opacity 1.4s ease-out, transform 1.4s ease-out;
@@ -1487,10 +1487,10 @@ a {
   transform: translateY(-50%) translateY(0);
 }
 .inquire__logo img {
-  max-width: 320px;
+  max-width: clamp(360px, 36vw, 520px);
   width: 100%;
   height: auto;
-  opacity: 0.85;
+  opacity: 0.95;
 }
 @media (max-width: 900px) {
   .inquire__logo {
@@ -1689,23 +1689,23 @@ a {
 
 /* Inquire compression — fit section to a single viewport */
 #inquire {
-  padding-top: clamp(60px, 7vw, 100px);
-  padding-bottom: clamp(60px, 7vw, 100px);
+  padding-top: clamp(48px, 5vw, 80px);
+  padding-bottom: clamp(48px, 5vw, 80px);
 }
 #inquire .sec-head {
-  margin-bottom: clamp(32px, 4vw, 56px);
+  margin-bottom: clamp(16px, 2vw, 28px);
 }
 #inquire .letter__form {
   min-height: 0;
-  gap: clamp(24px, 3vw, 40px);
+  gap: clamp(16px, 2vw, 28px);
 }
 .letter__hello {
-  margin-top: clamp(20px, 3vw, 40px);
-  margin-bottom: clamp(32px, 4vw, 56px);
+  margin-top: clamp(12px, 1.5vw, 20px);
+  margin-bottom: clamp(20px, 2.5vw, 36px);
 }
 .letter__line {
-  margin-bottom: clamp(24px, 3vw, 44px);
+  margin-bottom: clamp(16px, 2vw, 28px);
 }
 .letter__nav {
-  padding-top: clamp(16px, 2vw, 28px);
+  padding-top: clamp(12px, 1.5vw, 20px);
 }
