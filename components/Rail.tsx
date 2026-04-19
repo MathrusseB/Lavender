@@ -1,26 +1,46 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { chapterList, type ChapterKey } from "@/lib/chapters";
 
-function currentKey(pathname: string | null): ChapterKey | null {
-  if (pathname === "/") return "hero";
-  if (pathname === "/the-ranch") return "ranch";
-  if (pathname === "/the-barn") return "barn";
-  if (pathname === "/the-cabins") return "cabins";
-  if (pathname === "/gatherings") return "gatherings";
-  if (pathname === "/field-notes") return "notes";
-  if (pathname === "/inquire") return "inquire";
-  return null;
-}
+const KEY_TO_ID: Record<ChapterKey, string> = {
+  hero: "top",
+  ranch: "ranch",
+  barn: "barn",
+  cabins: "cabins",
+  gatherings: "gatherings",
+  notes: "notes",
+  inquire: "inquire",
+};
 
-export function Rail({ inverted }: { inverted?: boolean }) {
-  const pathname = usePathname();
-  const current = currentKey(pathname);
-  const isInverted = inverted ?? (pathname === "/the-barn" || pathname === "/");
+const INVERTED_KEYS = new Set<ChapterKey>(["hero", "barn"]);
 
+export function Rail() {
   const items = chapterList();
+  const [current, setCurrent] = useState<ChapterKey>(items[0]?.key ?? "hero");
+
+  useEffect(() => {
+    const onScroll = () => {
+      const viewMid = window.scrollY + window.innerHeight * 0.35;
+      let found: ChapterKey = items[0]?.key ?? "hero";
+      for (const item of items) {
+        const el = document.getElementById(KEY_TO_ID[item.key]);
+        if (el && el.offsetTop <= viewMid) {
+          found = item.key;
+        }
+      }
+      setCurrent(found);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [items]);
+
+  const isInverted = INVERTED_KEYS.has(current);
 
   return (
     <nav
@@ -28,15 +48,15 @@ export function Rail({ inverted }: { inverted?: boolean }) {
       aria-label="Section progress"
     >
       {items.map((item) => (
-        <Link
+        <a
           key={item.key}
-          href={item.path}
-          data-sec={item.key}
+          href={`#${KEY_TO_ID[item.key]}`}
+          data-sec={KEY_TO_ID[item.key]}
           className={item.key === current ? "current" : undefined}
         >
           <span className="r-num">{item.numeral}</span>
           <span className="r-line" />
-        </Link>
+        </a>
       ))}
     </nav>
   );
