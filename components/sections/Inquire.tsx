@@ -81,7 +81,7 @@ const STEPS: Step[] = [
 
 const ROMANS = ["I", "II", "III", "IV", "V"];
 
-export function Inquire() {
+export function Inquire({ id = "inquire" }: { id?: string } = {}) {
   const headRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null>(null);
@@ -204,7 +204,7 @@ export function Inquire() {
   return (
     <section
       className="section section--stone"
-      id="inquire"
+      id={id}
       aria-label="Inquire"
     >
       <div ref={headRef} className={`sec-head${headIn ? " in" : ""}`}>

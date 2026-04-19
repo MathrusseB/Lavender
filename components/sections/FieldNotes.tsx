@@ -24,7 +24,7 @@ function formatDate(iso: string): string {
   return `${MONTHS[d.getUTCMonth()]} · ${d.getUTCFullYear()}`;
 }
 
-export function FieldNotes() {
+export function FieldNotes({ id = "notes" }: { id?: string } = {}) {
   const headRef = useRef<HTMLDivElement>(null);
   const notesRef = useRef<HTMLDivElement>(null);
   const headIn = useReveal(headRef);
@@ -35,7 +35,7 @@ export function FieldNotes() {
   return (
     <section
       className="section section--warm"
-      id="notes"
+      id={id}
       aria-label="Field Notes"
     >
       <div ref={headRef} className={`sec-head${headIn ? " in" : ""}`}>

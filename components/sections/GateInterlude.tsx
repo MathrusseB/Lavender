@@ -4,13 +4,14 @@ import Image from "next/image";
 import { useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
 
-export function GateInterlude() {
+export function GateInterlude({ id }: { id?: string } = {}) {
   const ref = useRef<HTMLElement>(null);
   const revealed = useReveal(ref);
 
   return (
     <figure
       ref={ref}
+      id={id}
       className={`gate-bleed${revealed ? " in" : ""}`}
       data-view
       aria-label="Entry gate"
