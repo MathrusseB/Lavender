@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
 import { chapterCardNumeral, chapterNumeral } from "@/lib/chapters";
 import { siteConfig } from "@/lib/config";
+import { SectionHead } from "@/components/SectionHead";
 
 type GatherCard = {
   key: keyof typeof siteConfig.gatheringItems;
@@ -78,10 +79,7 @@ const CARDS: GatherCard[] = [
 ];
 
 export function Gatherings({ id = "gatherings" }: { id?: string } = {}) {
-  const headRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
-
-  const headIn = useReveal(headRef);
   const gridIn = useReveal(gridRef);
 
   return (
@@ -90,25 +88,20 @@ export function Gatherings({ id = "gatherings" }: { id?: string } = {}) {
       id={id}
       aria-label="Gatherings"
     >
-      <div ref={headRef} className={`sec-head${headIn ? " in" : ""}`}>
-        <div className="sec-head__numeral">{chapterNumeral("gatherings")}</div>
-        <div className="sec-head__body">
-          <span className="eyebrow">
-            <span>Gatherings</span>
-          </span>
-          <h2 className="sec-head__title">
+      <SectionHead
+        numeral={chapterNumeral("gatherings")}
+        eyebrow="Gatherings"
+        title={
+          <>
             What the ranch
             <br />
             does, when it <em>does</em>
             <br />
             anything at all.
-          </h2>
-          <p className="sec-head__dek">
-            The ranch is a private place. From time to time it opens, by
-            invitation, for reasons the family considers worth opening it for.
-          </p>
-        </div>
-      </div>
+          </>
+        }
+        dek="The ranch is a private place. From time to time it opens, by invitation, for reasons the family considers worth opening it for."
+      />
 
       <div ref={gridRef} className={`gatherings${gridIn ? " in" : ""}`}>
         {CARDS.filter((c) => siteConfig.gatheringItems[c.key]).map((c) => {

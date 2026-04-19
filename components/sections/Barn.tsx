@@ -4,14 +4,13 @@ import Image from "next/image";
 import { useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
 import { chapterNumeral } from "@/lib/chapters";
+import { SectionHead } from "@/components/SectionHead";
 
 export function Barn({ id = "barn" }: { id?: string } = {}) {
-  const headRef = useRef<HTMLDivElement>(null);
   const heroImgRef = useRef<HTMLElement>(null);
   const spreadRef = useRef<HTMLDivElement>(null);
   const duoRef = useRef<HTMLDivElement>(null);
 
-  const headIn = useReveal(headRef);
   const heroImgIn = useReveal(heroImgRef);
   const spreadIn = useReveal(spreadRef);
   const duoIn = useReveal(duoRef);
@@ -22,26 +21,20 @@ export function Barn({ id = "barn" }: { id?: string } = {}) {
       id={id}
       aria-label="The Barn"
     >
-      <div ref={headRef} className={`sec-head${headIn ? " in" : ""}`}>
-        <div className="sec-head__numeral">{chapterNumeral("barn")}</div>
-        <div className="sec-head__body">
-          <span className="eyebrow">
-            <span>The Barn</span>
-          </span>
-          <h2 className="sec-head__title">
+      <SectionHead
+        numeral={chapterNumeral("barn")}
+        eyebrow="The Barn"
+        title={
+          <>
             Six thousand
             <br />
             square feet, <em>built</em>
             <br />
             to be looked at.
-          </h2>
-          <p className="sec-head__dek">
-            A pre-engineered steel barn with a gambrel roofline, a
-            polished-concrete main floor, and a mezzanine that holds a long
-            view of the field.
-          </p>
-        </div>
-      </div>
+          </>
+        }
+        dek="A pre-engineered steel barn with a gambrel roofline, a polished-concrete main floor, and a mezzanine that holds a long view of the field."
+      />
 
       <div className="barn-stack">
         <figure

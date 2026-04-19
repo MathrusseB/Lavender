@@ -9,6 +9,7 @@ import {
 } from "react";
 import { useReveal } from "@/hooks/useReveal";
 import { chapterNumeral } from "@/lib/chapters";
+import { SectionHead } from "@/components/SectionHead";
 
 type StepKey = "name" | "from" | "intent" | "email" | "notes";
 
@@ -83,11 +84,9 @@ const STEPS: Step[] = [
 const ROMANS = ["I", "II", "III", "IV", "V"];
 
 export function Inquire({ id = "inquire" }: { id?: string } = {}) {
-  const headRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null>(null);
 
-  const headIn = useReveal(headRef);
   const formIn = useReveal(formRef);
 
   const [letterStep, setLetterStep] = useState(0);
@@ -208,14 +207,10 @@ export function Inquire({ id = "inquire" }: { id?: string } = {}) {
       id={id}
       aria-label="Inquire"
     >
-      <div ref={headRef} className={`sec-head${headIn ? " in" : ""}`}>
-        <div className="sec-head__numeral">{chapterNumeral("inquire")}</div>
-        <div className="sec-head__body">
-          <span className="eyebrow">
-            <span>Inquire</span>
-          </span>
-        </div>
-      </div>
+      <SectionHead
+        numeral={chapterNumeral("inquire")}
+        eyebrow="Inquire"
+      />
 
       <div ref={formRef} className={`letter${formIn ? " in" : ""}`}>
         {sent ? (

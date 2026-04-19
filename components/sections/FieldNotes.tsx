@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
 import { chapterNumeral } from "@/lib/chapters";
 import { getFieldNotes, type FieldNote } from "@/lib/cms";
+import { SectionHead } from "@/components/SectionHead";
 
 const MONTHS = [
   "Jan",
@@ -26,9 +27,7 @@ function formatDate(iso: string): string {
 }
 
 export function FieldNotes({ id = "notes" }: { id?: string } = {}) {
-  const headRef = useRef<HTMLDivElement>(null);
   const notesRef = useRef<HTMLDivElement>(null);
-  const headIn = useReveal(headRef);
   const notesIn = useReveal(notesRef);
 
   const notes: FieldNote[] = getFieldNotes();
@@ -39,25 +38,20 @@ export function FieldNotes({ id = "notes" }: { id?: string } = {}) {
       id={id}
       aria-label="Field Notes"
     >
-      <div ref={headRef} className={`sec-head${headIn ? " in" : ""}`}>
-        <div className="sec-head__numeral">{chapterNumeral("notes")}</div>
-        <div className="sec-head__body">
-          <span className="eyebrow">
-            <span>Field Notes</span>
-          </span>
-          <h2 className="sec-head__title">
+      <SectionHead
+        numeral={chapterNumeral("notes")}
+        eyebrow="Field Notes"
+        title={
+          <>
             Letters from
             <br />
             the ranch, <em>sent</em>
             <br />
             occasionally.
-          </h2>
-          <p className="sec-head__dek">
-            Brief observations from the grounds. Weather, animals, the state of
-            the maples, who passed through.
-          </p>
-        </div>
-      </div>
+          </>
+        }
+        dek="Brief observations from the grounds. Weather, animals, the state of the maples, who passed through."
+      />
 
       <div ref={notesRef} className={`notes${notesIn ? " in" : ""}`}>
         <aside className="notes__aside">
