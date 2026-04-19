@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
+import { chapterCardNumeral, chapterNumeral } from "@/lib/chapters";
 import { siteConfig } from "@/lib/config";
 
 type GatherCard = {
@@ -17,7 +18,7 @@ type GatherCard = {
 const CARDS: GatherCard[] = [
   {
     key: "equineStays",
-    num: "V · i",
+    num: chapterCardNumeral("gatherings", "i"),
     wide: true,
     title: (
       <>
@@ -29,7 +30,7 @@ const CARDS: GatherCard[] = [
   },
   {
     key: "familyGatherings",
-    num: "V · ii",
+    num: chapterCardNumeral("gatherings", "ii"),
     title: (
       <>
         Family <em>gatherings.</em>
@@ -40,7 +41,7 @@ const CARDS: GatherCard[] = [
   },
   {
     key: "privateRetreats",
-    num: "V · iii",
+    num: chapterCardNumeral("gatherings", "iii"),
     title: (
       <>
         Private <em>retreats.</em>
@@ -51,7 +52,7 @@ const CARDS: GatherCard[] = [
   },
   {
     key: "seasonalVisits",
-    num: "V · iv",
+    num: chapterCardNumeral("gatherings", "iv"),
     muted: true,
     title: (
       <>
@@ -63,7 +64,7 @@ const CARDS: GatherCard[] = [
   },
   {
     key: "otherUses",
-    num: "V · v",
+    num: chapterCardNumeral("gatherings", "v"),
     wide: true,
     muted: true,
     title: (
@@ -90,7 +91,7 @@ export function Gatherings({ id = "gatherings" }: { id?: string } = {}) {
       aria-label="Gatherings"
     >
       <div ref={headRef} className={`sec-head${headIn ? " in" : ""}`}>
-        <div className="sec-head__numeral">V</div>
+        <div className="sec-head__numeral">{chapterNumeral("gatherings")}</div>
         <div className="sec-head__body">
           <span className="eyebrow">
             <span>Gatherings</span>

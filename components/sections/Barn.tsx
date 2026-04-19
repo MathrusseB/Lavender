@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
+import { chapterNumeral } from "@/lib/chapters";
 
 export function Barn({ id = "barn" }: { id?: string } = {}) {
   const headRef = useRef<HTMLDivElement>(null);
@@ -22,7 +23,7 @@ export function Barn({ id = "barn" }: { id?: string } = {}) {
       aria-label="The Barn"
     >
       <div ref={headRef} className={`sec-head${headIn ? " in" : ""}`}>
-        <div className="sec-head__numeral">III</div>
+        <div className="sec-head__numeral">{chapterNumeral("barn")}</div>
         <div className="sec-head__body">
           <span className="eyebrow">
             <span>The Barn</span>

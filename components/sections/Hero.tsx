@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { chapterNumeral, totalChaptersNumeral } from "@/lib/chapters";
 
 const LINE_REVEAL = {
   initial: { y: "110%" },
@@ -72,12 +73,12 @@ export function Hero({ id = "top" }: { id?: string } = {}) {
             care. Held for family. Opened, now and then, to guests who belong.
           </p>
           <div className="hero__meta">
-            <span className="n">I</span>The Arrival
+            <span className="n">{chapterNumeral("hero")}</span>The Arrival
           </div>
           <div className="hero__progress">
             <div className="pc">
               <span>001</span>
-              {"\u2009/\u2009"}VII
+              {"\u2009/\u2009"}{totalChaptersNumeral()}
             </div>
             <div className="pl" />
           </div>
