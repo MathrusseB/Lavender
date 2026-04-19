@@ -1107,6 +1107,7 @@ a {
   object-fit: cover;
   object-position: center top;
   transform: scale(1.08);
+  transform-origin: center top;
 }
 .gate-bleed.in img {
   animation: kenBurns 14s ease-out forwards;
