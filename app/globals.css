@@ -59,10 +59,15 @@ body {
   }
   .page-area {
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
-  .page-area > * {
-    height: 100%;
+  .page-area > *:not(.page-turn) {
+    flex: 1;
     min-height: 0;
+  }
+  .page-area > .page-turn {
+    flex: 0 0 auto;
   }
 }
 
@@ -369,6 +374,80 @@ a {
   .rail {
     display: none;
   }
+}
+
+/* ============================================================
+   PAGE-TURN NAVIGATION
+   ============================================================ */
+.page-turn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px var(--gutter);
+  pointer-events: none;
+}
+.page-turn__side {
+  flex: 1;
+  display: flex;
+  pointer-events: auto;
+}
+.page-turn__side--prev {
+  justify-content: flex-start;
+}
+.page-turn__side--next {
+  justify-content: flex-end;
+}
+.page-turn__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  transition: color 0.24s ease;
+}
+.page-turn__link:hover,
+.page-turn__link:focus-visible {
+  color: var(--ink);
+}
+.page-turn__arrow {
+  display: inline-block;
+  transition: transform 0.24s ease;
+}
+.page-turn__link--prev:hover .page-turn__arrow,
+.page-turn__link--prev:focus-visible .page-turn__arrow {
+  transform: translateX(-4px);
+}
+.page-turn__link--next:hover .page-turn__arrow,
+.page-turn__link--next:focus-visible .page-turn__arrow {
+  transform: translateX(4px);
+}
+.page-turn__numeral {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1;
+}
+.page-turn__dot {
+  opacity: 0.6;
+}
+body.letter-active .page-turn {
+  display: none;
+}
+.section--ink .page-turn__link,
+.hero .page-turn__link {
+  color: color-mix(in oklab, var(--cream) 65%, transparent);
+}
+.section--ink .page-turn__link:hover,
+.section--ink .page-turn__link:focus-visible,
+.hero .page-turn__link:hover,
+.hero .page-turn__link:focus-visible {
+  color: var(--cream);
 }
 
 /* ============================================================
