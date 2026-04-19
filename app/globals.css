@@ -1667,3 +1667,26 @@ a {
   text-transform: uppercase;
   color: var(--ink-mute);
 }
+
+/* Inquire compression — fit section to a single viewport */
+#inquire {
+  padding-top: clamp(60px, 7vw, 100px);
+  padding-bottom: clamp(60px, 7vw, 100px);
+}
+#inquire .sec-head {
+  margin-bottom: clamp(32px, 4vw, 56px);
+}
+#inquire .letter__form {
+  min-height: 0;
+  gap: clamp(24px, 3vw, 40px);
+}
+.letter__hello {
+  margin-top: clamp(20px, 3vw, 40px);
+  margin-bottom: clamp(32px, 4vw, 56px);
+}
+.letter__line {
+  margin-bottom: clamp(24px, 3vw, 44px);
+}
+.letter__nav {
+  padding-top: clamp(16px, 2vw, 28px);
+}
