@@ -87,77 +87,6 @@ a {
 }
 
 /* ============================================================
-   CINEMATIC INTRO OVERLAY
-   ============================================================ */
-.intro {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  background: #0c0a08;
-  display: grid;
-  place-items: center;
-  transition: opacity 1s ease 1.2s, visibility 0s linear 2.3s;
-}
-.intro.done {
-  opacity: 0;
-  visibility: hidden;
-}
-.intro__mono {
-  display: grid;
-  place-items: center;
-  gap: 22px;
-  color: var(--cream);
-}
-.intro__mono svg {
-  width: 120px;
-  height: 120px;
-  overflow: visible;
-}
-.intro__mono svg path,
-.intro__mono svg line {
-  fill: none;
-  stroke: var(--cream);
-  stroke-width: 1.25;
-  stroke-linecap: round;
-  stroke-dasharray: 400;
-  stroke-dashoffset: 400;
-  animation: drawOn 1.4s ease-out forwards;
-}
-.intro__mono svg path:nth-child(2) {
-  animation-delay: 0.1s;
-}
-.intro__mono svg path:nth-child(3) {
-  animation-delay: 0.2s;
-}
-.intro__mono svg line {
-  animation-delay: 0.3s;
-  stroke-dasharray: 200;
-  stroke-dashoffset: 200;
-}
-@keyframes drawOn {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.intro__word {
-  font-family: var(--serif);
-  font-weight: 300;
-  font-size: 14px;
-  letter-spacing: 0.56em;
-  text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(6px);
-  animation: fadeUp 0.8s ease-out 1.1s forwards;
-}
-@keyframes fadeUp {
-  to {
-    opacity: 0.85;
-    transform: none;
-  }
-}
-
-/* ============================================================
    NAV
    ============================================================ */
 .nav {
@@ -373,7 +302,7 @@ a {
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.24em;
-  color: color-mix(in oklab, var(--ink-mute) 70%, transparent);
+  color: var(--ink);
   opacity: 0;
   animation: navIn 1s ease-out 2.6s forwards;
 }
@@ -382,82 +311,32 @@ a {
   grid-template-columns: 18px 6px;
   gap: 10px;
   align-items: center;
+  opacity: 0.55;
+  transition: opacity 0.3s;
+}
+.rail a:hover {
+  opacity: 0.8;
+}
+.rail a.current {
+  opacity: 1;
 }
 .rail a .r-line {
   width: 18px;
   height: 1px;
   background: currentColor;
-  opacity: 0.35;
-  transition: opacity 0.3s, width 0.3s;
-}
-.rail a.current {
-  color: var(--ink);
+  opacity: 0.6;
+  transition: width 0.3s;
 }
 .rail a.current .r-line {
   opacity: 1;
   width: 28px;
 }
 .rail.inverted {
-  color: color-mix(in oklab, var(--cream) 60%, transparent);
-}
-.rail.inverted a.current {
   color: var(--cream);
 }
 @media (max-width: 780px) {
   .rail {
     display: none;
-  }
-}
-
-/* ============================================================
-   CUSTOM CURSOR
-   ============================================================ */
-.cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 60;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--cream);
-  border: 1px solid var(--ink);
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: width 0.25s, height 0.25s, background 0.25s, border-color 0.25s;
-  mix-blend-mode: difference;
-  display: none;
-}
-.cursor.on {
-  display: block;
-}
-.cursor__label {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--ink);
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-.cursor.expanded {
-  width: 68px;
-  height: 68px;
-  background: var(--cream);
-  border-color: var(--cream);
-  mix-blend-mode: normal;
-}
-.cursor.expanded .cursor__label {
-  opacity: 1;
-}
-
-@media (max-width: 780px) {
-  .cursor {
-    display: none !important;
   }
 }
 
@@ -470,35 +349,10 @@ a {
   display: grid;
   align-content: end;
   padding: clamp(60px, 10vw, 140px) var(--gutter) 24px;
-  color: var(--cream);
+  background: var(--cream);
+  color: var(--ink);
+  border-top: 1px solid var(--rule);
   overflow: hidden;
-}
-.footer-land::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-      135deg,
-      var(--stone) 0 2px,
-      transparent 2px 14px
-    ),
-    linear-gradient(180deg, var(--linen), var(--stone));
-  transform: scale(1.04);
-}
-.footer-land::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(12, 10, 8, 0.3) 0%,
-    rgba(12, 10, 8, 0.55) 60%,
-    rgba(12, 10, 8, 0.85) 100%
-  );
-}
-.footer-land > * {
-  position: relative;
-  z-index: 1;
 }
 .footer-land__mark {
   font-family: var(--serif);
@@ -511,18 +365,18 @@ a {
 }
 .footer-land__mark em {
   font-style: italic;
-  color: color-mix(in oklab, var(--cream) 75%, var(--lavender) 25%);
+  color: color-mix(in oklab, var(--ink) 75%, var(--lavender) 25%);
 }
 .footer-land__tag {
   font-family: var(--mono);
   font-size: 14px;
   letter-spacing: 0.42em;
   text-transform: uppercase;
-  opacity: 0.85;
+  color: var(--ink-mute);
 }
 .footer-land__rule {
   height: 1px;
-  background: rgba(244, 239, 231, 0.3);
+  background: var(--rule);
   margin: 48px 0 20px;
 }
 .footer-land__meta {
@@ -533,11 +387,11 @@ a {
   font-size: 11px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: color-mix(in oklab, var(--cream) 55%, transparent);
+  color: var(--ink-mute);
   flex-wrap: wrap;
 }
 .footer-land__meta a:hover {
-  color: var(--cream);
+  color: var(--ink);
 }
 
 /* ============================================================
@@ -549,7 +403,6 @@ a {
   min-height: 680px;
   overflow: hidden;
   color: var(--cream);
-  cursor: none;
 }
 .hero__img {
   position: absolute;
@@ -713,9 +566,6 @@ a {
 }
 
 @media (max-width: 780px) {
-  .hero {
-    cursor: auto;
-  }
   .hero__locale {
     display: none;
   }

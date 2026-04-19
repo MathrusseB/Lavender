@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
+import { chapterNumeral } from "@/lib/chapters";
 import { getFieldNotes, type FieldNote } from "@/lib/cms";
 
 const MONTHS = [
@@ -39,7 +40,7 @@ export function FieldNotes({ id = "notes" }: { id?: string } = {}) {
       aria-label="Field Notes"
     >
       <div ref={headRef} className={`sec-head${headIn ? " in" : ""}`}>
-        <div className="sec-head__numeral">VI</div>
+        <div className="sec-head__numeral">{chapterNumeral("notes")}</div>
         <div className="sec-head__body">
           <span className="eyebrow">
             <span>Field Notes</span>

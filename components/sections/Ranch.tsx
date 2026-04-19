@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
+import { chapterNumeral } from "@/lib/chapters";
 
 export function Ranch({ id = "ranch" }: { id?: string } = {}) {
   const headRef = useRef<HTMLDivElement>(null);
@@ -13,7 +14,7 @@ export function Ranch({ id = "ranch" }: { id?: string } = {}) {
         ref={headRef}
         className={`sec-head${revealed ? " in" : ""}`}
       >
-        <div className="sec-head__numeral">II</div>
+        <div className="sec-head__numeral">{chapterNumeral("ranch")}</div>
         <div className="sec-head__body">
           <span className="eyebrow">
             <span>The Ranch</span>

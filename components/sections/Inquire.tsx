@@ -8,6 +8,7 @@ import {
   type KeyboardEvent,
 } from "react";
 import { useReveal } from "@/hooks/useReveal";
+import { chapterNumeral } from "@/lib/chapters";
 
 type StepKey = "name" | "from" | "intent" | "email" | "notes";
 
@@ -208,7 +209,7 @@ export function Inquire({ id = "inquire" }: { id?: string } = {}) {
       aria-label="Inquire"
     >
       <div ref={headRef} className={`sec-head${headIn ? " in" : ""}`}>
-        <div className="sec-head__numeral">VII</div>
+        <div className="sec-head__numeral">{chapterNumeral("inquire")}</div>
         <div className="sec-head__body">
           <span className="eyebrow">
             <span>Inquire</span>

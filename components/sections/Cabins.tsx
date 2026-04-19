@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
+import { chapterNumeral } from "@/lib/chapters";
 
 type Cabin = {
   name: React.ReactNode;
@@ -53,7 +54,7 @@ export function Cabins({ id = "cabins" }: { id?: string } = {}) {
       aria-label="The Cabins"
     >
       <div ref={headRef} className={`sec-head${headIn ? " in" : ""}`}>
-        <div className="sec-head__numeral">IV</div>
+        <div className="sec-head__numeral">{chapterNumeral("cabins")}</div>
         <div className="sec-head__body">
           <span className="eyebrow">
             <span>The Cabins</span>
