@@ -432,13 +432,9 @@ a {
 .hero__scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(12, 10, 8, 0.55) 0%,
-    rgba(12, 10, 8, 0) 28%,
-    rgba(12, 10, 8, 0) 60%,
-    rgba(12, 10, 8, 0.72) 100%
-  );
+  background:
+    linear-gradient(180deg, rgba(12, 10, 8, 0.18) 0%, rgba(12, 10, 8, 0.30) 100%),
+    linear-gradient(180deg, rgba(12, 10, 8, 0) 60%, rgba(12, 10, 8, 0.55) 100%);
 }
 
 .hero__frame {
