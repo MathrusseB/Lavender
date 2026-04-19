@@ -102,7 +102,7 @@ export function Inquire({ id = "inquire" }: { id?: string } = {}) {
     if (sent) return;
     const el = inputRef.current;
     if (!el) return;
-    const id = window.setTimeout(() => el.focus(), 50);
+    const id = window.setTimeout(() => el.focus({ preventScroll: true }), 50);
     return () => window.clearTimeout(id);
   }, [letterStep, sent]);
 
