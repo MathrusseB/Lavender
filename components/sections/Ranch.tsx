@@ -1,15 +1,9 @@
 "use client";
 
-import { useRef } from "react";
-import Image from "next/image";
-import { useReveal } from "@/hooks/useReveal";
 import { chapterNumeral } from "@/lib/chapters";
 import { SectionHead } from "@/components/SectionHead";
 
 export function Ranch({ id = "ranch" }: { id?: string } = {}) {
-  const logoRef = useRef<HTMLDivElement>(null);
-  const logoIn = useReveal(logoRef);
-
   return (
     <section className="section section--warm" id={id} aria-label="The Ranch">
       <SectionHead
@@ -26,16 +20,6 @@ export function Ranch({ id = "ranch" }: { id?: string } = {}) {
         }
         dek="Ninety minutes south of Kansas City, the land begins to roll."
       />
-
-      <div ref={logoRef} className={`ranch__logo${logoIn ? " in" : ""}`}>
-        <Image
-          src="/assets/chat-logo.png"
-          alt="Lavender Family Ranch"
-          width={260}
-          height={260}
-          priority={false}
-        />
-      </div>
 
       <div className="ranch-body">
         <p className="ranch-body__lede">

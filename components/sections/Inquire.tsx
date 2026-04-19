@@ -7,6 +7,7 @@ import {
   type ChangeEvent,
   type KeyboardEvent,
 } from "react";
+import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
 import { chapterNumeral } from "@/lib/chapters";
 import { SectionHead } from "@/components/SectionHead";
@@ -85,9 +86,11 @@ const ROMANS = ["I", "II", "III", "IV", "V"];
 
 export function Inquire({ id = "inquire" }: { id?: string } = {}) {
   const formRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null>(null);
 
   const formIn = useReveal(formRef);
+  const logoIn = useReveal(logoRef);
 
   const [letterStep, setLetterStep] = useState(0);
   const [letterAnswers, setLetterAnswers] = useState<Record<string, string>>({});
@@ -211,6 +214,16 @@ export function Inquire({ id = "inquire" }: { id?: string } = {}) {
         numeral={chapterNumeral("inquire")}
         eyebrow="Inquire"
       />
+
+      <div ref={logoRef} className={`inquire__logo${logoIn ? " in" : ""}`}>
+        <Image
+          src="/assets/chat-logo.png"
+          alt="Lavender Family Ranch"
+          width={280}
+          height={280}
+          priority={false}
+        />
+      </div>
 
       <div ref={formRef} className={`letter${formIn ? " in" : ""}`}>
         {sent ? (
