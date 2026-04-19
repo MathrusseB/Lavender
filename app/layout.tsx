@@ -33,7 +33,6 @@ export default function RootLayout({
         <Nav />
         <Rail />
         {children}
-        <div className="footer-transition" aria-hidden="true" />
         <FooterLand />
       </body>
     </html>
