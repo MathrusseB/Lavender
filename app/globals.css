@@ -355,7 +355,7 @@ a {
    ============================================================ */
 .footer-land {
   position: relative;
-  min-height: 560px;
+  min-height: 100vh;
   display: grid;
   align-content: end;
   padding: clamp(60px, 10vw, 140px) var(--gutter) 24px;
@@ -374,13 +374,11 @@ a {
 .footer-land::after {
   content: "";
   position: absolute;
-  inset: -120px 0 0 0;
+  inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(12,10,8,0) 0%,
-    rgba(12,10,8,0) 40%,
-    rgba(12,10,8,0.3) 60%,
-    rgba(12,10,8,0.55) 75%,
+    rgba(12,10,8,0.3) 0%,
+    rgba(12,10,8,0.55) 60%,
     rgba(12,10,8,0.85) 100%
   );
   pointer-events: none;
