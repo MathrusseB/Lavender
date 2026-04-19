@@ -70,11 +70,11 @@ const CARDS: GatherCard[] = [
     muted: true,
     title: (
       <>
-        Other <em>uses,</em> held open.
+        Other <em>stays,</em> still taking shape.
       </>
     ),
-    desc: "The ranch is not finished deciding what it is. These sections are here because the family wants the option, and not yet the obligation.",
-    state: "To be decided",
+    desc: "The ranch is still finding its shape. This space is here because the family is open to the kind of gathering we haven't thought of yet. If you have one in mind, tell us.",
+    state: "Open to ideas",
   },
 ];
 
