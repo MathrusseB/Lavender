@@ -18,7 +18,7 @@ function currentKey(pathname: string | null): ChapterKey | null {
 export function Rail({ inverted }: { inverted?: boolean }) {
   const pathname = usePathname();
   const current = currentKey(pathname);
-  const isInverted = inverted ?? pathname === "/the-barn";
+  const isInverted = inverted ?? (pathname === "/the-barn" || pathname === "/");
 
   const items = chapterList();
 
