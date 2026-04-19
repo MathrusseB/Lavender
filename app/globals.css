@@ -35,6 +35,37 @@ body {
   color: var(--ink);
 }
 
+/* ============================================================
+   APP SHELL — one-viewport layout (desktop)
+   ============================================================ */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.page-area {
+  display: block;
+  flex: 1;
+  min-height: 0;
+}
+@media (min-width: 781px) {
+  html,
+  body {
+    overflow: hidden;
+  }
+  .app-shell {
+    max-height: 100vh;
+    overflow: hidden;
+  }
+  .page-area {
+    overflow: hidden;
+  }
+  .page-area > * {
+    height: 100%;
+    min-height: 0;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -403,6 +434,12 @@ a {
   overflow: hidden;
   color: var(--cream);
 }
+@media (min-width: 781px) {
+  .hero {
+    height: 100%;
+    min-height: 0;
+  }
+}
 .hero__img {
   position: absolute;
   inset: 0;
@@ -585,6 +622,15 @@ a {
   padding: clamp(80px, 11vw, 160px) var(--gutter);
   position: relative;
 }
+@media (min-width: 781px) {
+  .section {
+    padding: clamp(80px, 10vh, 104px) var(--gutter)
+      clamp(20px, 3vh, 36px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+}
 .section--warm {
   background: var(--cream);
 }
@@ -612,6 +658,11 @@ a {
   gap: clamp(24px, 3vw, 56px);
   align-items: start;
   margin-bottom: clamp(40px, 6vw, 88px);
+}
+@media (min-width: 781px) {
+  .sec-head {
+    margin-bottom: clamp(24px, 4vh, 48px);
+  }
 }
 .sec-head__numeral {
   font-family: var(--serif);
@@ -749,6 +800,12 @@ a {
   padding-top: 32px;
   border-top: 1px solid var(--rule);
 }
+@media (min-width: 781px) {
+  .land-vocab {
+    margin-top: clamp(24px, 3vh, 40px);
+    padding-top: clamp(16px, 2.4vh, 24px);
+  }
+}
 .land-vocab__item {
   display: flex;
   flex-direction: column;
@@ -783,6 +840,64 @@ a {
 .barn-stack {
   display: grid;
   gap: clamp(40px, 5vw, 72px);
+}
+@media (min-width: 781px) {
+  .barn-stack {
+    gap: clamp(16px, 2vh, 28px);
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "hero spread"
+      "duo spread";
+    align-items: stretch;
+    flex: 1;
+    min-height: 0;
+  }
+  .barn-stack > .barn-hero-img {
+    grid-area: hero;
+    aspect-ratio: auto;
+    height: 100%;
+  }
+  .barn-stack > .spec-spread {
+    grid-area: spread;
+  }
+  .barn-stack > .barn-duo {
+    grid-area: duo;
+  }
+  .barn-hero-img img {
+    height: 100%;
+  }
+  .spec-cell {
+    padding: 20px 18px;
+  }
+  .spec-xxviii {
+    padding: 28px 24px;
+  }
+  .spec-xxviii .n {
+    font-size: clamp(80px, 9vw, 140px);
+  }
+  .spec-iii .n {
+    font-size: clamp(56px, 6vw, 92px);
+  }
+  .spec-row2 > .spec-cell {
+    padding: 16px 16px;
+  }
+  .spec-row2 .n {
+    font-size: clamp(28px, 3vw, 44px);
+  }
+  .barn-duo .asp {
+    aspect-ratio: auto;
+    height: 100%;
+  }
+  .barn-duo figure {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .barn-duo figure > .asp {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
 }
 
 .barn-hero-img {
@@ -1017,6 +1132,14 @@ a {
   transform: translateY(18px);
   transition: opacity 0.9s ease, transform 0.9s ease;
 }
+@media (min-width: 781px) {
+  .gatherings {
+    gap: 16px;
+    flex: 1;
+    min-height: 0;
+    grid-auto-rows: 1fr;
+  }
+}
 .gatherings.in {
   opacity: 1;
   transform: none;
@@ -1030,6 +1153,20 @@ a {
   flex-direction: column;
   gap: 16px;
   min-height: 340px;
+}
+@media (min-width: 781px) {
+  .gather {
+    padding: 18px 20px 20px;
+    gap: 10px;
+    min-height: 0;
+  }
+  .gather__title {
+    font-size: 22px;
+  }
+  .gather__desc {
+    font-size: 13px;
+    line-height: 1.55;
+  }
 }
 .gather--wide {
   grid-column: span 8;
@@ -1196,6 +1333,19 @@ a {
   transform: translateY(18px);
   transition: opacity 0.9s ease, transform 0.9s ease;
 }
+@media (min-width: 781px) {
+  .notes {
+    flex: 1;
+    min-height: 0;
+    align-items: stretch;
+  }
+  .note {
+    padding: 14px 0;
+  }
+  .note__title {
+    font-size: clamp(18px, 1.8vw, 22px);
+  }
+}
 .notes.in {
   opacity: 1;
   transform: none;
@@ -1322,6 +1472,22 @@ a {
   display: grid;
   grid-template-rows: auto 1fr auto;
   gap: clamp(40px, 6vw, 72px);
+}
+@media (min-width: 781px) {
+  .letter {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .letter__form {
+    min-height: 0;
+    flex: 1;
+    gap: clamp(20px, 3vh, 40px);
+  }
+  .letter__thanks {
+    min-height: 0;
+  }
 }
 .letter__head {
   display: grid;
