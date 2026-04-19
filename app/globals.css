@@ -1112,13 +1112,6 @@ a {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 24px;
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
-}
-.gatherings.in {
-  opacity: 1;
-  transform: none;
 }
 .gather {
   grid-column: span 4;
@@ -1129,6 +1122,26 @@ a {
   flex-direction: column;
   gap: 16px;
   min-height: 340px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 900ms ease-out, transform 900ms ease-out;
+}
+.gather.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.gather:nth-child(1).in { transition-delay: 0ms; }
+.gather:nth-child(2).in { transition-delay: 140ms; }
+.gather:nth-child(3).in { transition-delay: 280ms; }
+.gather:nth-child(4).in { transition-delay: 420ms; }
+.gather:nth-child(5).in { transition-delay: 560ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gather {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 .gather--wide {
   grid-column: span 8;

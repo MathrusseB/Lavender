@@ -78,10 +78,27 @@ const CARDS: GatherCard[] = [
   },
 ];
 
-export function Gatherings({ id = "gatherings" }: { id?: string } = {}) {
-  const gridRef = useRef<HTMLDivElement>(null);
-  const gridIn = useReveal(gridRef);
+function GatherCard({ card }: { card: GatherCard }) {
+  const ref = useRef<HTMLElement>(null);
+  const isIn = useReveal(ref);
+  const classes = ["gather"];
+  if (card.wide) classes.push("gather--wide");
+  if (card.muted) classes.push("gather--muted");
+  if (isIn) classes.push("in");
+  return (
+    <article ref={ref} className={classes.join(" ")}>
+      <span className="gather__num">{card.num}</span>
+      <h3 className="gather__title">{card.title}</h3>
+      <p className="gather__desc">{card.desc}</p>
+      <div className="gather__state">
+        <span className="dot" />
+        {card.state}
+      </div>
+    </article>
+  );
+}
 
+export function Gatherings({ id = "gatherings" }: { id?: string } = {}) {
   return (
     <section
       className="section section--stone"
@@ -103,23 +120,10 @@ export function Gatherings({ id = "gatherings" }: { id?: string } = {}) {
         dek="The ranch is a private place. From time to time it opens, by invitation, for reasons the family considers worth opening it for."
       />
 
-      <div ref={gridRef} className={`gatherings${gridIn ? " in" : ""}`}>
-        {CARDS.filter((c) => siteConfig.gatheringItems[c.key]).map((c) => {
-          const classes = ["gather"];
-          if (c.wide) classes.push("gather--wide");
-          if (c.muted) classes.push("gather--muted");
-          return (
-            <article key={c.key} className={classes.join(" ")}>
-              <span className="gather__num">{c.num}</span>
-              <h3 className="gather__title">{c.title}</h3>
-              <p className="gather__desc">{c.desc}</p>
-              <div className="gather__state">
-                <span className="dot" />
-                {c.state}
-              </div>
-            </article>
-          );
-        })}
+      <div className="gatherings">
+        {CARDS.filter((c) => siteConfig.gatheringItems[c.key]).map((c) => (
+          <GatherCard key={c.key} card={c} />
+        ))}
       </div>
     </section>
   );
