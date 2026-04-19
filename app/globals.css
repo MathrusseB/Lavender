@@ -175,6 +175,16 @@ a {
   font-family: var(--mono);
   position: relative;
   overflow: hidden;
+  transition: background 0.3s, border-color 0.3s;
+}
+.nav:not(.scrolled) .nav__inquire {
+  background: color-mix(in oklab, var(--ink) 18%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-color: rgba(244, 239, 231, 0.6);
+}
+.nav:not(.scrolled) .nav__inquire:hover {
+  background: color-mix(in oklab, var(--ink) 32%, transparent);
 }
 .nav__inquire::after {
   content: "";
