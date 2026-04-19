@@ -19,7 +19,7 @@ export function Hero({ id = "top" }: { id?: string } = {}) {
     <section className="hero" id={id} aria-label="Hero">
       <div className="hero__img">
         <Image
-          src="/assets/barn-sunset.jpg"
+          src="/assets/barn-front.jpg"
           alt=""
           fill
           priority
