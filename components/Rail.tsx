@@ -48,6 +48,17 @@ export function Rail() {
     };
   }, [items]);
 
+  const onRailClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    const top = el.getBoundingClientRect().top + window.scrollY - 40;
+    window.scrollTo({ top, behavior: "smooth" });
+    if (typeof history !== "undefined" && history.replaceState) {
+      history.replaceState(null, "", `#${id}`);
+    }
+  };
+
   return (
     <nav
       className={`rail${inverted ? " inverted" : ""}`}
@@ -59,6 +70,7 @@ export function Rail() {
           href={`#${KEY_TO_ID[item.key]}`}
           data-sec={KEY_TO_ID[item.key]}
           className={item.key === current ? "current" : undefined}
+          onClick={(e) => onRailClick(e, KEY_TO_ID[item.key])}
         >
           <span className="r-num">{item.numeral}</span>
           <span className="r-line" />
