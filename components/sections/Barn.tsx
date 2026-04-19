@@ -38,8 +38,7 @@ export function Barn({ id = "barn" }: { id?: string } = {}) {
           <p className="sec-head__dek">
             A pre-engineered steel barn with a gambrel roofline, a
             polished-concrete main floor, and a mezzanine that holds a long
-            view of the field. Built by Koehn Building Systems of Rich Hill,
-            Missouri.
+            view of the field.
           </p>
         </div>
       </div>

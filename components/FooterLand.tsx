@@ -10,7 +10,6 @@ export function FooterLand() {
       <div className="footer-land__rule" />
       <div className="footer-land__meta">
         <span>© 2026 Lavender Family Ranch</span>
-        <span>Built by Koehn Building Systems · Linn County, KS</span>
         <span>
           <a href="https://instagram.com/lavenderfamilyranch">
             @lavenderfamilyranch
