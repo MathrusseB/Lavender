@@ -6,29 +6,18 @@ import { Cabins } from "@/components/sections/Cabins";
 import { Gatherings } from "@/components/sections/Gatherings";
 import { FieldNotes } from "@/components/sections/FieldNotes";
 import { Inquire } from "@/components/sections/Inquire";
-import { PageTurn } from "@/components/PageTurn";
 import { siteConfig } from "@/lib/config";
-import { isMobile } from "@/lib/device";
 
 export default function Home() {
-  if (!isMobile()) {
-    return (
-      <>
-        <Hero />
-        <PageTurn currentKey="hero" />
-      </>
-    );
-  }
-
   return (
     <>
       <Hero id="top" />
-      <Ranch id="the-ranch" />
-      <Barn id="the-barn" />
+      <Ranch id="ranch" />
+      <Barn id="barn" />
       <GateInterlude id="gate" />
-      {siteConfig.cabinsEnabled && <Cabins id="the-cabins" />}
+      {siteConfig.cabinsEnabled && <Cabins id="cabins" />}
       <Gatherings id="gatherings" />
-      <FieldNotes id="field-notes" />
+      <FieldNotes id="notes" />
       <Inquire id="inquire" />
     </>
   );
