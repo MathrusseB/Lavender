@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { chapterNumeral, totalChaptersNumeral } from "@/lib/chapters";
 
@@ -11,6 +12,13 @@ const LINE_REVEAL = {
 const EASE = [0.22, 0.61, 0.36, 1] as const;
 
 export function Hero({ id = "top" }: { id?: string } = {}) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setMounted(true), 100);
+    return () => clearTimeout(t);
+  }, []);
+  const inCls = mounted ? " in" : "";
+
   return (
     <section className="hero" id={id} aria-label="Hero">
       <video
@@ -63,14 +71,14 @@ export function Hero({ id = "top" }: { id?: string } = {}) {
         </div>
 
         <div className="hero__bottom">
-          <p className="hero__lede">
+          <p className={`hero__lede${inCls}`}>
             A ranch in the rolling wooded hills of southeast Kansas. Built with
             care. Held for family. Opened, now and then, to guests who belong.
           </p>
-          <div className="hero__meta">
+          <div className={`hero__meta${inCls}`}>
             <span className="n">{chapterNumeral("hero")}</span>The Arrival
           </div>
-          <div className="hero__progress">
+          <div className={`hero__progress${inCls}`}>
             <div className="pc">
               <span>001</span>
               {"\u2009/\u2009"}{totalChaptersNumeral()}

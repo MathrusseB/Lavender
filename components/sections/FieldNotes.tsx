@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
 import { chapterNumeral } from "@/lib/chapters";
 import { getFieldNotes, type FieldNote } from "@/lib/cms";
+import { SectionHead } from "@/components/SectionHead";
 
 const MONTHS = [
   "Jan",
@@ -25,11 +26,28 @@ function formatDate(iso: string): string {
   return `${MONTHS[d.getUTCMonth()]} · ${d.getUTCFullYear()}`;
 }
 
+function NoteRow({ note }: { note: FieldNote }) {
+  const ref = useRef<HTMLAnchorElement>(null);
+  const isIn = useReveal(ref);
+  return (
+    <a
+      ref={ref}
+      className={`note${isIn ? " in" : ""}`}
+      href="#"
+    >
+      <span className="note__date">{formatDate(note.date)}</span>
+      <h3
+        className="note__title"
+        dangerouslySetInnerHTML={{ __html: note.title }}
+      />
+      <span className="note__read">Read &rarr;</span>
+    </a>
+  );
+}
+
 export function FieldNotes({ id = "notes" }: { id?: string } = {}) {
-  const headRef = useRef<HTMLDivElement>(null);
-  const notesRef = useRef<HTMLDivElement>(null);
-  const headIn = useReveal(headRef);
-  const notesIn = useReveal(notesRef);
+  const asideRef = useRef<HTMLElement>(null);
+  const asideIn = useReveal(asideRef);
 
   const notes: FieldNote[] = getFieldNotes();
 
@@ -39,28 +57,26 @@ export function FieldNotes({ id = "notes" }: { id?: string } = {}) {
       id={id}
       aria-label="Field Notes"
     >
-      <div ref={headRef} className={`sec-head${headIn ? " in" : ""}`}>
-        <div className="sec-head__numeral">{chapterNumeral("notes")}</div>
-        <div className="sec-head__body">
-          <span className="eyebrow">
-            <span>Field Notes</span>
-          </span>
-          <h2 className="sec-head__title">
+      <SectionHead
+        numeral={chapterNumeral("notes")}
+        eyebrow="Field Notes"
+        title={
+          <>
             Letters from
             <br />
             the ranch, <em>sent</em>
             <br />
             occasionally.
-          </h2>
-          <p className="sec-head__dek">
-            Brief observations from the grounds. Weather, animals, the state of
-            the maples, who passed through.
-          </p>
-        </div>
-      </div>
+          </>
+        }
+        dek="Brief observations from the grounds. Weather, animals, the state of the maples, who passed through."
+      />
 
-      <div ref={notesRef} className={`notes${notesIn ? " in" : ""}`}>
-        <aside className="notes__aside">
+      <div className="notes">
+        <aside
+          ref={asideRef}
+          className={`notes__aside${asideIn ? " in" : ""}`}
+        >
           <p className="notes__prompt">
             We keep a small record. Leave a note if you&rsquo;d like the next
             one.
@@ -85,14 +101,7 @@ export function FieldNotes({ id = "notes" }: { id?: string } = {}) {
 
         <div className="note-list">
           {notes.map((note) => (
-            <a key={note.slug} className="note" href="#">
-              <span className="note__date">{formatDate(note.date)}</span>
-              <h3
-                className="note__title"
-                dangerouslySetInnerHTML={{ __html: note.title }}
-              />
-              <span className="note__read">Read &rarr;</span>
-            </a>
+            <NoteRow key={note.slug} note={note} />
           ))}
         </div>
       </div>

@@ -4,17 +4,20 @@ import Image from "next/image";
 import { useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
 import { chapterNumeral } from "@/lib/chapters";
+import { SectionHead } from "@/components/SectionHead";
 
 export function Barn({ id = "barn" }: { id?: string } = {}) {
-  const headRef = useRef<HTMLDivElement>(null);
   const heroImgRef = useRef<HTMLElement>(null);
   const spreadRef = useRef<HTMLDivElement>(null);
   const duoRef = useRef<HTMLDivElement>(null);
+  const xxviiiRef = useRef<HTMLDivElement>(null);
+  const iiiRef = useRef<HTMLDivElement>(null);
 
-  const headIn = useReveal(headRef);
   const heroImgIn = useReveal(heroImgRef);
   const spreadIn = useReveal(spreadRef);
   const duoIn = useReveal(duoRef);
+  const xxviiiIn = useReveal(xxviiiRef);
+  const iiiIn = useReveal(iiiRef);
 
   return (
     <section
@@ -22,26 +25,20 @@ export function Barn({ id = "barn" }: { id?: string } = {}) {
       id={id}
       aria-label="The Barn"
     >
-      <div ref={headRef} className={`sec-head${headIn ? " in" : ""}`}>
-        <div className="sec-head__numeral">{chapterNumeral("barn")}</div>
-        <div className="sec-head__body">
-          <span className="eyebrow">
-            <span>The Barn</span>
-          </span>
-          <h2 className="sec-head__title">
+      <SectionHead
+        numeral={chapterNumeral("barn")}
+        eyebrow="The Barn"
+        title={
+          <>
             Six thousand
             <br />
             square feet, <em>built</em>
             <br />
             to be looked at.
-          </h2>
-          <p className="sec-head__dek">
-            A pre-engineered steel barn with a gambrel roofline, a
-            polished-concrete main floor, and a mezzanine that holds a long
-            view of the field.
-          </p>
-        </div>
-      </div>
+          </>
+        }
+        dek="A pre-engineered steel barn with a gambrel roofline, a polished-concrete main floor, and a mezzanine that holds a long view of the field."
+      />
 
       <div className="barn-stack">
         <figure
@@ -66,18 +63,28 @@ export function Barn({ id = "barn" }: { id?: string } = {}) {
           className={`spec-spread${spreadIn ? " in" : ""}`}
         >
           <div className="spec-cell spec-xxviii">
-            <div className="n">XXVIII</div>
+            <div
+              ref={xxviiiRef}
+              className={`n n--reveal${xxviiiIn ? " in" : ""}`}
+            >
+              <span>XXVIII</span>
+            </div>
             <div className="l">
               Andersen sliding windows. A great deal of afternoon.
             </div>
             <div className="k">03 · Daylight</div>
           </div>
           <div className="spec-cell spec-iii">
-            <div className="n">III</div>
+            <div
+              ref={iiiRef}
+              className={`n n--reveal${iiiIn ? " in" : ""}`}
+            >
+              <span>III</span>
+            </div>
             <div className="l">
               Cupolas along the ridge, each crowned with a weather vane.
             </div>
-            <div className="note">
+            <div className={`note${iiiIn ? " in" : ""}`}>
               <svg
                 viewBox="0 0 42 14"
                 fill="none"

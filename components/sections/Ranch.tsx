@@ -4,36 +4,28 @@ import { useRef } from "react";
 import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
 import { chapterNumeral } from "@/lib/chapters";
+import { SectionHead } from "@/components/SectionHead";
 
 export function Ranch({ id = "ranch" }: { id?: string } = {}) {
-  const headRef = useRef<HTMLDivElement>(null);
-  const revealed = useReveal(headRef);
   const logoRef = useRef<HTMLDivElement>(null);
   const logoIn = useReveal(logoRef);
 
   return (
     <section className="section section--warm" id={id} aria-label="The Ranch">
-      <div
-        ref={headRef}
-        className={`sec-head${revealed ? " in" : ""}`}
-      >
-        <div className="sec-head__numeral">{chapterNumeral("ranch")}</div>
-        <div className="sec-head__body">
-          <span className="eyebrow">
-            <span>The Ranch</span>
-          </span>
-          <h2 className="sec-head__title">
+      <SectionHead
+        numeral={chapterNumeral("ranch")}
+        eyebrow="The Ranch"
+        title={
+          <>
             A place <em>for family,</em>
             <br />
             held open for the
             <br />
             right kind of quiet.
-          </h2>
-          <p className="sec-head__dek">
-            Ninety minutes south of Kansas City, the land begins to roll.
-          </p>
-        </div>
-      </div>
+          </>
+        }
+        dek="Ninety minutes south of Kansas City, the land begins to roll."
+      />
 
       <div ref={logoRef} className={`ranch__logo${logoIn ? " in" : ""}`}>
         <Image
