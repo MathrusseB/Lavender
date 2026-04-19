@@ -18,7 +18,6 @@ export function Ranch({ id = "ranch" }: { id?: string } = {}) {
             right kind of quiet.
           </>
         }
-        dek="Ninety minutes south of Kansas City, the land begins to roll."
       />
 
       <div className="ranch-body">
