@@ -243,10 +243,6 @@ export function Inquire({ id = "inquire" }: { id?: string } = {}) {
               <h3 className="letter__hello">
                 Hello, <em>and welcome.</em>
               </h3>
-              <div className="letter__step">
-                <span className="cur">{ROMANS[letterStep]}</span> &nbsp;/&nbsp;{" "}
-                V
-              </div>
             </div>
 
             <div className="letter__sheet">
@@ -276,6 +272,9 @@ export function Inquire({ id = "inquire" }: { id?: string } = {}) {
               >
                 &larr; Back
               </button>
+              <div className="letter__step-counter" aria-label={`Step ${ROMANS[letterStep]} of V`}>
+                {ROMANS[letterStep]} / V
+              </div>
               {isLast ? (
                 <button type="submit" className="letter__send">
                   Send the note
