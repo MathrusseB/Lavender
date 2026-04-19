@@ -860,6 +860,13 @@ a {
 /* ============================================================
    III — THE BARN (ink section)
    ============================================================ */
+#barn .sec-head__numeral {
+  color: color-mix(in oklab, var(--cream) 70%, transparent);
+}
+#barn .sec-head__eyebrow {
+  color: color-mix(in oklab, var(--cream) 55%, transparent);
+}
+
 .barn-stack {
   display: grid;
   gap: clamp(40px, 5vw, 72px);
