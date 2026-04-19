@@ -1304,13 +1304,6 @@ a {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: clamp(32px, 5vw, 72px);
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
-}
-.notes.in {
-  opacity: 1;
-  transform: none;
 }
 @media (max-width: 900px) {
   .notes {
@@ -1319,6 +1312,13 @@ a {
 }
 .notes__aside {
   display: block;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 800ms ease-out, transform 800ms ease-out;
+}
+.notes__aside.in {
+  opacity: 1;
+  transform: translateY(0);
 }
 .notes__prompt {
   font-family: var(--serif);
@@ -1378,13 +1378,33 @@ a {
   padding: 28px 0;
   border-top: 1px solid var(--rule);
   align-items: baseline;
-  transition: padding-left 0.4s ease;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 800ms ease-out, transform 800ms ease-out,
+    padding-left 0.4s ease;
 }
+.note.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.note:nth-child(1).in { transition-delay: 0ms; }
+.note:nth-child(2).in { transition-delay: 120ms; }
+.note:nth-child(3).in { transition-delay: 240ms; }
+.note:nth-child(4).in { transition-delay: 360ms; }
 .note:last-child {
   border-bottom: 1px solid var(--rule);
 }
 .note:hover {
   padding-left: 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .notes__aside,
+  .note {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: padding-left 0.4s ease !important;
+  }
 }
 .note__date,
 .note__read {

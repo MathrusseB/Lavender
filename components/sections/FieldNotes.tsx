@@ -26,9 +26,28 @@ function formatDate(iso: string): string {
   return `${MONTHS[d.getUTCMonth()]} · ${d.getUTCFullYear()}`;
 }
 
+function NoteRow({ note }: { note: FieldNote }) {
+  const ref = useRef<HTMLAnchorElement>(null);
+  const isIn = useReveal(ref);
+  return (
+    <a
+      ref={ref}
+      className={`note${isIn ? " in" : ""}`}
+      href="#"
+    >
+      <span className="note__date">{formatDate(note.date)}</span>
+      <h3
+        className="note__title"
+        dangerouslySetInnerHTML={{ __html: note.title }}
+      />
+      <span className="note__read">Read &rarr;</span>
+    </a>
+  );
+}
+
 export function FieldNotes({ id = "notes" }: { id?: string } = {}) {
-  const notesRef = useRef<HTMLDivElement>(null);
-  const notesIn = useReveal(notesRef);
+  const asideRef = useRef<HTMLElement>(null);
+  const asideIn = useReveal(asideRef);
 
   const notes: FieldNote[] = getFieldNotes();
 
@@ -53,8 +72,11 @@ export function FieldNotes({ id = "notes" }: { id?: string } = {}) {
         dek="Brief observations from the grounds. Weather, animals, the state of the maples, who passed through."
       />
 
-      <div ref={notesRef} className={`notes${notesIn ? " in" : ""}`}>
-        <aside className="notes__aside">
+      <div className="notes">
+        <aside
+          ref={asideRef}
+          className={`notes__aside${asideIn ? " in" : ""}`}
+        >
           <p className="notes__prompt">
             We keep a small record. Leave a note if you&rsquo;d like the next
             one.
@@ -79,14 +101,7 @@ export function FieldNotes({ id = "notes" }: { id?: string } = {}) {
 
         <div className="note-list">
           {notes.map((note) => (
-            <a key={note.slug} className="note" href="#">
-              <span className="note__date">{formatDate(note.date)}</span>
-              <h3
-                className="note__title"
-                dangerouslySetInnerHTML={{ __html: note.title }}
-              />
-              <span className="note__read">Read &rarr;</span>
-            </a>
+            <NoteRow key={note.slug} note={note} />
           ))}
         </div>
       </div>
