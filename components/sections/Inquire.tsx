@@ -86,7 +86,7 @@ const ROMANS = ["I", "II", "III", "IV", "V"];
 
 export function Inquire({ id = "inquire" }: { id?: string } = {}) {
   const formRef = useRef<HTMLDivElement>(null);
-  const logoRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLElement>(null);
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null>(null);
 
   const formIn = useReveal(formRef);
@@ -206,27 +206,19 @@ export function Inquire({ id = "inquire" }: { id?: string } = {}) {
 
   return (
     <section
-      className="section section--stone"
+      className="section section--stone inquire"
       id={id}
       aria-label="Inquire"
     >
-      <SectionHead
-        numeral={chapterNumeral("inquire")}
-        eyebrow="Inquire"
-      />
+      <div className="inquire__grid">
+        <div className="inquire__left">
+          <SectionHead
+            numeral={chapterNumeral("inquire")}
+            eyebrow="Inquire"
+          />
 
-      <div ref={logoRef} className={`inquire__logo${logoIn ? " in" : ""}`}>
-        <Image
-          src="/assets/chat-logo.png"
-          alt="Lavender Family Ranch"
-          width={280}
-          height={280}
-          priority={false}
-        />
-      </div>
-
-      <div ref={formRef} className={`letter${formIn ? " in" : ""}`}>
-        {sent ? (
+          <div ref={formRef} className={`letter${formIn ? " in" : ""}`}>
+            {sent ? (
           <div className="letter__thanks" role="status" aria-live="polite">
             Thank you,{" "}
             <em>{(letterAnswers.name || "friend").trim()}</em>. We&rsquo;ve
@@ -291,6 +283,20 @@ export function Inquire({ id = "inquire" }: { id?: string } = {}) {
             </div>
           </form>
         )}
+          </div>
+        </div>
+
+        <div className="inquire__right">
+          <figure ref={logoRef} className={`inquire__logo${logoIn ? " in" : ""}`}>
+            <Image
+              src="/assets/chat-logo.png"
+              alt="Lavender Family Ranch"
+              width={520}
+              height={520}
+              priority={false}
+            />
+          </figure>
+        </div>
       </div>
     </section>
   );
