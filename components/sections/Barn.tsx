@@ -10,10 +10,14 @@ export function Barn({ id = "barn" }: { id?: string } = {}) {
   const heroImgRef = useRef<HTMLElement>(null);
   const spreadRef = useRef<HTMLDivElement>(null);
   const duoRef = useRef<HTMLDivElement>(null);
+  const xxviiiRef = useRef<HTMLDivElement>(null);
+  const iiiRef = useRef<HTMLDivElement>(null);
 
   const heroImgIn = useReveal(heroImgRef);
   const spreadIn = useReveal(spreadRef);
   const duoIn = useReveal(duoRef);
+  const xxviiiIn = useReveal(xxviiiRef);
+  const iiiIn = useReveal(iiiRef);
 
   return (
     <section
@@ -59,18 +63,28 @@ export function Barn({ id = "barn" }: { id?: string } = {}) {
           className={`spec-spread${spreadIn ? " in" : ""}`}
         >
           <div className="spec-cell spec-xxviii">
-            <div className="n">XXVIII</div>
+            <div
+              ref={xxviiiRef}
+              className={`n n--reveal${xxviiiIn ? " in" : ""}`}
+            >
+              <span>XXVIII</span>
+            </div>
             <div className="l">
               Andersen sliding windows. A great deal of afternoon.
             </div>
             <div className="k">03 · Daylight</div>
           </div>
           <div className="spec-cell spec-iii">
-            <div className="n">III</div>
+            <div
+              ref={iiiRef}
+              className={`n n--reveal${iiiIn ? " in" : ""}`}
+            >
+              <span>III</span>
+            </div>
             <div className="l">
               Cupolas along the ridge, each crowned with a weather vane.
             </div>
-            <div className="note">
+            <div className={`note${iiiIn ? " in" : ""}`}>
               <svg
                 viewBox="0 0 42 14"
                 fill="none"

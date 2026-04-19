@@ -925,6 +925,22 @@ a {
   text-transform: uppercase;
 }
 
+.spec-cell .n--reveal {
+  overflow: hidden;
+  display: block;
+}
+.spec-cell .n--reveal > span {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.spec-cell .n--reveal.in > span {
+  transform: translateY(0);
+}
+.spec-iii .n--reveal > span {
+  transition-delay: 180ms;
+}
+
 .spec-xxviii {
   grid-column: span 7;
   padding: 72px 40px;
@@ -953,11 +969,28 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 900ms ease-out, transform 900ms ease-out;
+  transition-delay: 400ms;
+}
+.spec-iii .note.in {
+  opacity: 1;
+  transform: translateY(0);
 }
 .spec-iii .note svg {
   width: 42px;
   height: 14px;
   flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spec-cell .n--reveal > span,
+  .spec-iii .note {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 .spec-row2 {
