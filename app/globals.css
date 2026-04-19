@@ -1008,6 +1008,7 @@ body.letter-active .page-turn {
   font-size: 13px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
 }
 
 .spec-spread {
@@ -1156,6 +1157,7 @@ body.letter-active .page-turn {
   font-size: 13px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
 }
 @media (max-width: 780px) {
   .barn-duo {
@@ -1190,14 +1192,15 @@ body.letter-active .page-turn {
 }
 .gate-bleed figcaption {
   position: absolute;
-  inset: auto 0 24px 0;
-  text-align: center;
+  right: clamp(24px, 4vw, 60px);
+  bottom: clamp(24px, 4vw, 40px);
+  text-align: right;
   color: var(--cream);
   font-family: var(--mono);
   font-size: 13px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
 }
 
 /* ============================================================
