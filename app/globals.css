@@ -292,6 +292,16 @@ a {
     display: block;
   }
 }
+@media (max-width: 780px) {
+  .wordmark {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+  }
+  .wordmark small {
+    font-size: 9px;
+    letter-spacing: 0.24em;
+  }
+}
 @media (min-width: 781px) {
   .nav-menu {
     display: none;
