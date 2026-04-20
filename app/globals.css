@@ -422,19 +422,6 @@ a {
   z-index: 0;
 }
 .footer-land > * { position: relative; z-index: 1; }
-
-/* ============================================================
-   DUST MOTES
-   ============================================================ */
-.dust-motes {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 2;
-  mix-blend-mode: screen;
-}
 .footer-land__mark {
   font-family: var(--serif);
   font-weight: 300;
