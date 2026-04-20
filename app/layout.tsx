@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { DustMotes } from "@/components/DustMotes";
 import { FooterLand } from "@/components/FooterLand";
 import { Nav } from "@/components/Nav";
 import { Rail } from "@/components/Rail";
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body className="bg-cream text-ink">
         <Nav />
         <Rail />
+        <DustMotes />
         {children}
         <FooterLand />
       </body>
