@@ -285,21 +285,30 @@ a {
 }
 
 @media (max-width: 780px) {
+  .nav {
+    position: fixed;
+    display: block;
+    padding: 12px var(--gutter);
+  }
+  .nav__left {
+    display: none;
+  }
+  .wordmark {
+    text-align: center;
+    display: block;
+  }
+  .nav__right {
+    position: absolute;
+    top: 50%;
+    right: var(--gutter);
+    transform: translateY(-50%);
+    margin: 0;
+  }
   .nav__inquire {
     display: none;
   }
   .nav__burger {
     display: block;
-  }
-}
-@media (max-width: 780px) {
-  .wordmark {
-    font-size: 11px;
-    letter-spacing: 0.22em;
-  }
-  .wordmark small {
-    font-size: 9px;
-    letter-spacing: 0.24em;
   }
 }
 @media (min-width: 781px) {
