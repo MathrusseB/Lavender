@@ -72,7 +72,7 @@ export function Barn({ id = "barn" }: { id?: string } = {}) {
             <div className="l">
               Andersen sliding windows. A great deal of afternoon.
             </div>
-            <div className="k">03 · Daylight</div>
+            <div className="k">01 · Daylight</div>
           </div>
           <div className="spec-cell spec-iii">
             <div
@@ -108,7 +108,7 @@ export function Barn({ id = "barn" }: { id?: string } = {}) {
               <div className="l">
                 Footprint, in feet. Sixteen-foot walls.
               </div>
-              <div className="k">01 · Envelope</div>
+              <div className="k">03 · Envelope</div>
             </div>
             <div className="spec-cell">
               <div className="n">

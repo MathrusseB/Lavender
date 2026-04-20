@@ -1065,7 +1065,7 @@ a {
     border-top: 1px solid rgba(244, 239, 231, 0.18);
   }
   .spec-xxviii .n {
-    font-size: 120px;
+    font-size: clamp(72px, 18vw, 120px);
   }
   .spec-row2 {
     grid-template-columns: repeat(2, 1fr);
